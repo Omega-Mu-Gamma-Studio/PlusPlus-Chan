@@ -97,9 +97,9 @@ export const SHOP_ITEMS = [
     description: 'Dark fantasy royalty. Deep indigo, gilded accents.',
   },
   {
-    id: 'outfit-magical',
+    id: 'outfit-Witch',
     type: 'outfit',
-    name: 'Magical Girl Debugger',
+    name: 'Memory Witch',
     requiredLevel: 6,
     emoji: '🪄',
     accent: '#ffd700',
@@ -114,7 +114,7 @@ export const SHOP_ITEMS = [
       domain:       { src: '/sprites/uniforms/mage/excited.png',    blend: false },
     },
     imageSrc: null,
-    description: 'Transforms bugs into features. Allegedly.',
+    description: 'The Pointers Bend to her Will. Allegedly.',
   },
   {
     id: 'wallpaper-crimson',
