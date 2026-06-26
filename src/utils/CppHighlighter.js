@@ -1,80 +1,68 @@
 /**
- * CppHighlighter.js
+ * cppHighlighter.js
  *
- * Zero-dependency C++ tokenizer.
+ * Zero-dependency C++ tokenizer for PlusPlus-chan.
  * Returns an HTML string with <span class="token-*"> wrappers.
  * Used by CodeBlock.jsx.
  *
  * Token classes:
- *   token-keyword      → blue   (auto, class, constexpr, using, etc.)
- *   token-type         → teal   (int, float, double, bool, std::string, etc.)
- *   token-string       → green  (quoted strings)
- *   token-comment      → gray   (//, /* ... * /)
- *   token-number       → orange
- *   token-method       → pink   (identifier followed by '(')
- *   token-annotation   → purple (preprocessor directives: #include, #define)
- *   token-class-name   → yellow (after 'class', 'struct', 'enum')
- *   token-preprocessor → purple (#include, #define, #ifdef)
+ *   token-keyword     → blue   (if, for, class, return, etc.)
+ *   token-type        → teal   (int, float, std::string, auto, etc.)
+ *   token-string      → green  (quoted strings and char literals)
+ *   token-comment     → gray   (// and block comments )
+ *   token-number      → orange (integers, floats, hex, binary)
+ *   token-method      → pink   (identifier immediately followed by '(')
+ *   token-preprocessor→ purple (#include, #define, #pragma, etc.)
+ *   token-class-name  → yellow (PascalCase identifiers / after class/struct)
+ *   token-operator    → red    (::, ->, <<, >>, *, &, etc.)
  */
 
+// --- C++ control flow & structure keywords ---
 const KEYWORDS = new Set([
-  // C++98 / C++03
-  'asm', 'auto', 'break', 'case', 'catch', 'class', 'const', 'continue',
-  'default', 'delete', 'do', 'else', 'enum', 'explicit', 'export',
-  'extern', 'for', 'friend', 'goto', 'if', 'inline', 'mutable',
-  'namespace', 'new', 'operator', 'private', 'protected', 'public',
-  'register', 'return', 'sizeof', 'static', 'struct', 'switch',
-  'template', 'this', 'throw', 'try', 'typedef', 'typeid',
-  'typename', 'union', 'using', 'virtual', 'volatile', 'while',
-
-  // C++11
-  'alignas', 'alignof', 'char16_t', 'char32_t', 'constexpr',
-  'decltype', 'noexcept', 'nullptr', 'override', 'static_assert',
-  'thread_local', 'final',
-
-  // C++17
-  'co_await', 'co_return', 'co_yield', 'fallthrough', 'nodiscard',
-
-  // C++20
-  'char8_t', 'concept', 'requires', 'consteval', 'constinit',
-
-  // Common non-reserved but often highlighted
-  'export', 'import', 'module',
+  'alignas','alignof','and','and_eq','asm','auto',
+  'bitand','bitor','break','case','catch','class',
+  'compl','concept','const','consteval','constexpr','constinit',
+  'const_cast','continue','co_await','co_return','co_yield',
+  'decltype','default','delete','do','dynamic_cast',
+  'else','enum','explicit','export','extern',
+  'false','final','for','friend',
+  'goto','if','inline',
+  'mutable','namespace','new','noexcept','not','not_eq','nullptr',
+  'operator','or','or_eq',
+  'override','private','protected','public',
+  'register','reinterpret_cast','requires','return',
+  'sizeof','static','static_assert','static_cast','struct','switch',
+  'template','this','thread_local','throw','true','try','typedef','typeid','typename',
+  'union','using','virtual','volatile',
+  'while','xor','xor_eq',
 ]);
 
+// --- C++ built-in types and common std types ---
 const TYPES = new Set([
   // Primitives
-  'int', 'long', 'short', 'char', 'signed', 'unsigned',
-  'float', 'double', 'bool', 'void',
-
-  // Fixed width (C++11)
-  'int8_t', 'int16_t', 'int32_t', 'int64_t',
-  'uint8_t', 'uint16_t', 'uint32_t', 'uint64_t',
-  'size_t', 'ptrdiff_t', 'nullptr_t',
-
-  // STL containers
-  'std::string', 'std::vector', 'std::array', 'std::list',
-  'std::deque', 'std::forward_list', 'std::map', 'std::multimap',
-  'std::unordered_map', 'std::unordered_multimap',
-  'std::set', 'std::multiset', 'std::unordered_set',
-  'std::unordered_multiset', 'std::queue', 'std::priority_queue',
-  'std::stack', 'std::pair', 'std::tuple', 'std::optional',
-  'std::variant', 'std::any', 'std::string_view',
-
-  // Smart pointers
-  'std::unique_ptr', 'std::shared_ptr', 'std::weak_ptr',
-
-  // STL algorithms (types returned)
-  'std::iterator_traits', 'std::allocator',
-  'std::initializer_list', 'std::function',
+  'bool','char','char8_t','char16_t','char32_t','wchar_t',
+  'int','long','short','signed','unsigned','void','float','double',
+  // Sized integers
+  'int8_t','int16_t','int32_t','int64_t',
+  'uint8_t','uint16_t','uint32_t','uint64_t',
+  'size_t','ptrdiff_t','nullptr_t',
+  // Common std types (unqualified usage)
+  'string','wstring','string_view',
+  'vector','array','list','deque','forward_list',
+  'map','unordered_map','multimap','unordered_multimap',
+  'set','unordered_set','multiset','unordered_multiset',
+  'stack','queue','priority_queue',
+  'pair','tuple','optional','variant','any',
+  'unique_ptr','shared_ptr','weak_ptr',
+  'function','thread','mutex','lock_guard','unique_lock',
+  'fstream','ifstream','ofstream','stringstream','iostream',
+  'exception','runtime_error','logic_error','out_of_range',
+  'initializer_list','iterator','reverse_iterator',
+  'cin','cout','cerr','clog','endl',
 ]);
 
-// Helper to check if a word is followed by '(' (method call)
-function isFollowedByParen(line, endPos) {
-  let j = endPos;
-  while (j < line.length && line[j] === ' ') j++;
-  return line[j] === '(';
-}
+// --- Operators worth highlighting ---
+const OPERATOR_REGEX = /::|->|\.\*|->*|<<|>>|&&|\|\||[+\-*/%&|^~!<>=]=?|[?:]/;
 
 function escapeHtml(str) {
   return str
@@ -84,118 +72,100 @@ function escapeHtml(str) {
 }
 
 export function tokenize(line) {
-  const trimmed = line.trimStart();
-
-  // 1. Full-line comments
-  if (trimmed.startsWith('//') || trimmed.startsWith('///')) {
-    return `<span class="token-comment">${escapeHtml(line)}</span>`;
-  }
-
   let result = '';
   let i = 0;
   const len = line.length;
 
   while (i < len) {
-    // 2. Preprocessor directives (#include, #define, etc.)
-    if (line[i] === '#') {
-      let end = i + 1;
-      while (end < len && /[a-zA-Z_]/.test(line[end])) end++;
-      const directive = line.slice(i, end);
-      const rest = line.slice(end);
-      const escapedRest = escapeHtml(rest);
-      result += `<span class="token-preprocessor">${escapeHtml(directive)}</span>${escapedRest}`;
-      // We're done — preprocessor directive is the whole line
-      return result;
-    }
 
-    // 3. Block comment start
+    // ── Block comment opening /* (handle multiline state externally if needed) ──
     if (line[i] === '/' && line[i + 1] === '*') {
       let end = i + 2;
-      while (end < len && !(line[end - 1] === '*' && line[end] === '/')) end++;
-      end++; // include closing '/'
+      while (end < len - 1 && !(line[end] === '*' && line[end + 1] === '/')) end++;
+      end = Math.min(end + 2, len);
       result += `<span class="token-comment">${escapeHtml(line.slice(i, end))}</span>`;
       i = end;
       continue;
     }
 
-    // 4. Single-line comment (mid-line)
+    // ── Single-line comment // ──
     if (line[i] === '/' && line[i + 1] === '/') {
       result += `<span class="token-comment">${escapeHtml(line.slice(i))}</span>`;
       break;
     }
 
-    // 5. Raw string literal (C++11) R"(...)"
-    if (line[i] === 'R' && line[i + 1] === '"') {
-      let end = i + 2;
-      while (end < len && !(line[end] === '"' && line[end - 1] !== '\\')) end++;
-      end++;
-      result += `<span class="token-string">${escapeHtml(line.slice(i, end))}</span>`;
+    // ── Preprocessor directive # ──
+    if (line[i] === '#' && (i === 0 || /\s/.test(line[i - 1]))) {
+      let end = i;
+      while (end < len && line[end] !== ' ' && line[end] !== '\t') end++;
+      // grab the rest of the directive (e.g. the filename in #include)
+      result += `<span class="token-preprocessor">${escapeHtml(line.slice(i, end))}</span>`;
       i = end;
       continue;
     }
 
-    // 6. String literal
+    // ── String literal " ──
     if (line[i] === '"') {
       let end = i + 1;
-      while (end < len && !(line[end] === '"' && line[end - 1] !== '\\')) end++;
-      end++;
+      while (end < len) {
+        if (line[end] === '\\') { end += 2; continue; }
+        if (line[end] === '"') { end++; break; }
+        end++;
+      }
       result += `<span class="token-string">${escapeHtml(line.slice(i, end))}</span>`;
       i = end;
       continue;
     }
 
-    // 7. Character literal
+    // ── Char literal ' ──
     if (line[i] === "'") {
       let end = i + 1;
-      while (end < len && !(line[end] === "'" && line[end - 1] !== '\\')) end++;
-      end++;
+      while (end < len) {
+        if (line[end] === '\\') { end += 2; continue; }
+        if (line[end] === "'") { end++; break; }
+        end++;
+      }
       result += `<span class="token-string">${escapeHtml(line.slice(i, end))}</span>`;
       i = end;
       continue;
     }
 
-    // 8. Number (supports hex, binary, octal, float suffixes)
-    if (/[0-9]/.test(line[i]) && (i === 0 || !/\w/.test(line[i - 1]))) {
+    // ── Number literal (int, float, hex 0x, binary 0b, suffixes) ──
+    if (/[0-9]/.test(line[i]) && (i === 0 || !/[\w]/.test(line[i - 1]))) {
       let end = i;
-      // Hex: 0x...
+      // hex
       if (line[i] === '0' && (line[i + 1] === 'x' || line[i + 1] === 'X')) {
-        end = i + 2;
-        while (end < len && /[0-9a-fA-F]/.test(line[end])) end++;
+        end += 2;
+        while (end < len && /[0-9a-fA-F_]/.test(line[end])) end++;
+      // binary
+      } else if (line[i] === '0' && (line[i + 1] === 'b' || line[i + 1] === 'B')) {
+        end += 2;
+        while (end < len && /[01_]/.test(line[end])) end++;
+      } else {
+        while (end < len && /[0-9._eE]/.test(line[end])) end++;
       }
-      // Binary: 0b...
-      else if (line[i] === '0' && (line[i + 1] === 'b' || line[i + 1] === 'B')) {
-        end = i + 2;
-        while (end < len && /[01]/.test(line[end])) end++;
-      }
-      // Octal: 0...
-      else if (line[i] === '0' && /[0-7]/.test(line[i + 1])) {
-        end = i + 1;
-        while (end < len && /[0-7]/.test(line[end])) end++;
-      }
-      // Float / decimal
-      else {
-        end = i;
-        while (end < len && /[0-9.]/.test(line[end])) end++;
-        // Suffix: f, F, l, L, u, U
-        if (end < len && /[fFlLuU]/.test(line[end])) end++;
-      }
+      // consume suffixes: f, F, l, L, u, U, ul, ll, etc.
+      while (end < len && /[fFlLuU]/.test(line[end])) end++;
       result += `<span class="token-number">${escapeHtml(line.slice(i, end))}</span>`;
       i = end;
       continue;
     }
 
-    // 9. Word (keyword / type / method / identifier)
+    // ── Word: keyword / type / method / identifier ──
     if (/[a-zA-Z_]/.test(line[i])) {
       let end = i;
-      while (end < len && /\w/.test(line[end])) end++;
-
+      while (end < len && /[\w]/.test(line[end])) end++;
       const word = line.slice(i, end);
-      const isMethod = isFollowedByParen(line, end);
+
+      // Peek past whitespace to detect function/method call
+      let j = end;
+      while (j < len && line[j] === ' ') j++;
+      const isCall = line[j] === '(';
 
       let cls = '';
-      if (KEYWORDS.has(word))      cls = 'token-keyword';
-      else if (TYPES.has(word))    cls = 'token-type';
-      else if (isMethod)           cls = 'token-method';
+      if (KEYWORDS.has(word))        cls = 'token-keyword';
+      else if (TYPES.has(word))      cls = 'token-type';
+      else if (isCall)               cls = 'token-method';
       else if (/^[A-Z]/.test(word)) cls = 'token-class-name';
 
       result += cls
@@ -206,7 +176,18 @@ export function tokenize(line) {
       continue;
     }
 
-    // 10. Everything else
+    // ── Multi-char operators: ::, ->, <<, >>, etc. ──
+    {
+      const slice = line.slice(i);
+      const match = slice.match(/^(::|->|\.\*|->*|<<|>>|&&|\|\||[+\-*/%&|^~!<>=]=?)/);
+      if (match) {
+        result += `<span class="token-operator">${escapeHtml(match[0])}</span>`;
+        i += match[0].length;
+        continue;
+      }
+    }
+
+    // ── Everything else (punctuation, braces, semicolons) ──
     result += escapeHtml(line[i]);
     i++;
   }
