@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import useLessonStore from '../../store/lessonStore';
 import useProgressStore from '../../store/progressStore';
 import { validateCode } from '../../utils/patternMatcher';
@@ -124,7 +126,9 @@ const LessonCanvas = ({ onComplete }) => {
             exit={{ opacity: 0, x: 20 }}
           >
             <h2 className="phase-heading phase-heading--work">▶ See It Work</h2>
-            <p className="phase-explanation">{phase1?.explanation}</p>
+            <div className="phase-explanation">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{phase1?.explanation}</ReactMarkdown>
+            </div>
             {phase1?.code && (
               <CodeBlock code={phase1.code} label="Working Code" />
             )}
@@ -153,7 +157,9 @@ const LessonCanvas = ({ onComplete }) => {
             exit={{ opacity: 0, x: 20 }}
           >
             <h2 className="phase-heading phase-heading--break">✕ See It Break</h2>
-            <p className="phase-explanation">{phase2?.explanation}</p>
+            <div className="phase-explanation">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{phase2?.explanation}</ReactMarkdown>
+            </div>
             {phase2?.brokenCode && (
               <CodeBlock code={phase2.brokenCode} label="Broken Code" />
             )}
@@ -182,7 +188,9 @@ const LessonCanvas = ({ onComplete }) => {
             exit={{ opacity: 0, x: 20 }}
           >
             <h2 className="phase-heading phase-heading--try">✎ You Try</h2>
-            <p className="phase-prompt">{phase3?.prompt}</p>
+            <div className="phase-prompt">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{phase3?.prompt}</ReactMarkdown>
+            </div>
 
             {/* Hint / Solution display */}
             {showSolution && phase3?.solution && (

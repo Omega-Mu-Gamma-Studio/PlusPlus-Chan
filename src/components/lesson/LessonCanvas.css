@@ -28,8 +28,133 @@
   color: var(--color-text);
   line-height: 1.8;
   font-size: 0.95rem;
-  white-space: pre-wrap;
 }
+
+/* ---- Markdown content styles (inside phase-explanation / phase-prompt) ---- */
+.phase-explanation p,
+.phase-prompt p {
+  margin: 0 0 0.9em;
+  line-height: 1.8;
+}
+
+.phase-explanation p:last-child,
+.phase-prompt p:last-child {
+  margin-bottom: 0;
+}
+
+.phase-explanation strong,
+.phase-prompt strong {
+  color: var(--color-pink-light);
+  font-weight: 700;
+}
+
+.phase-explanation em,
+.phase-prompt em {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.phase-explanation h1,
+.phase-explanation h2,
+.phase-explanation h3,
+.phase-prompt h1,
+.phase-prompt h2,
+.phase-prompt h3 {
+  font-family: var(--font-display);
+  color: var(--color-pink-light);
+  margin: 1.2em 0 0.4em;
+  font-size: 1rem;
+}
+
+.phase-explanation ul,
+.phase-explanation ol,
+.phase-prompt ul,
+.phase-prompt ol {
+  margin: 0.5em 0 0.9em;
+  padding-left: 1.5em;
+}
+
+.phase-explanation li,
+.phase-prompt li {
+  margin-bottom: 0.3em;
+  line-height: 1.7;
+}
+
+.phase-explanation code,
+.phase-prompt code {
+  font-family: var(--font-code);
+  font-size: 0.87em;
+  background: var(--color-surface-3);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  color: var(--color-pink-light);
+}
+
+.phase-explanation pre,
+.phase-prompt pre {
+  background: var(--color-surface-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  overflow-x: auto;
+  margin: 0.8em 0;
+}
+
+.phase-explanation pre code,
+.phase-prompt pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.88rem;
+  color: var(--color-text);
+}
+
+/* ---- Markdown Tables ---- */
+.phase-explanation table,
+.phase-prompt table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.8em 0 1em;
+  font-size: 0.88rem;
+}
+
+.phase-explanation th,
+.phase-prompt th {
+  background: rgba(255, 105, 180, 0.12);
+  color: var(--color-pink-light);
+  font-weight: 700;
+  text-align: left;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.phase-explanation td,
+.phase-prompt td {
+  padding: 7px 12px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.phase-explanation tr:nth-child(even) td,
+.phase-prompt tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.phase-explanation blockquote,
+.phase-prompt blockquote {
+  border-left: 3px solid var(--color-pink);
+  margin: 0.8em 0;
+  padding: 4px 0 4px 14px;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
 
 /* ---- Output Block ---- */
 .output-block {

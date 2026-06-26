@@ -1,29 +1,30 @@
 {
   "id": "4.1",
-  "title": "Collections Framework Overview",
+  "title": "What is the STL?",
   "type": "conceptual",
   "phase1": {
     "code": "",
     "output": "",
-    "explanation": "The Collections Framework provides a unified architecture for storing and manipulating groups of objects.\n\nThink of collections like different types of containers:\n• List = an ordered list (like a shopping list)\n• Set = unique items only (like a set of dinner plates)\n• Map = key-value pairs (like a dictionary)\n• Queue = FIFO processing (like a line at a store)\n\n--- Collection Hierarchy ---\n\nIterable (root)\n    └── Collection\n        ├── List\n        │   ├── ArrayList\n        │   ├── LinkedList\n        │   └── Vector (legacy)\n        ├── Set\n        │   ├── HashSet\n        │   ├── TreeSet\n        │   └── LinkedHashSet\n        └── Queue\n            ├── LinkedList\n            └── PriorityQueue\n\nMap (separate hierarchy)\n    ├── HashMap\n    ├── TreeMap\n    └── LinkedHashMap\n\n--- When to Use Which ---\n\nArrayList:\n• Fast random access by index\n• Fast iteration\n• Good for: storing and accessing data by position\n\nLinkedList:\n• Fast insertion/removal at beginning/end\n• Good for: implementing stacks, queues\n\nHashSet:\n• Fast lookup, no duplicates\n• No order guaranteed\n• Good for: removing duplicates, membership testing\n\nTreeSet:\n• Sorted order\n• Good for: sorted unique elements\n\nHashMap:\n• Fast key-value lookup\n• No order guaranteed\n• Good for: dictionaries, caches, counts\n\nTreeMap:\n• Sorted keys\n• Good for: sorted key-value pairs\n\n--- Key Interfaces ---\n\nCollection:\n• Basic operations: add, remove, contains, size, isEmpty\n\nList:\n• Ordered collection, allows duplicates\n• Index-based access: get(index), set(index, element)\n\nSet:\n• No duplicates, no order (usually)\n• Based on equals() and hashCode()\n\nMap:\n• Key-value pairs, unique keys\n• put(key, value), get(key), containsKey(key)\n\nQueue:\n• FIFO (First-In-First-Out)\n• offer(), poll(), peek()\n\n--- Choosing the Right Collection ---\n\nAsk yourself:\n1. Do I need duplicates? → List (yes) / Set (no)\n2. Do I need order? → List, TreeSet, LinkedHashMap\n3. Do I need fast lookup? → HashMap, HashSet\n4. Do I need sorting? → TreeSet, TreeMap\n5. Do I need FIFO? → Queue\n\nPro tip: Use the most general interface (List, Set, Map) in your code, not the specific implementation!"
+    "explanation": "🎮 **The Standard Template Library (STL) is C++'s weapon arsenal.**\n\n**What is the STL?**\n\nThe STL is a collection of powerful, reusable components that handle common programming tasks. It's part of the C++ Standard Library.\n\nInstead of writing your own linked list, dynamic array, or sorting algorithm, you use STL containers and algorithms. They're fast, tested, and optimized.\n\n**The Four Pillars of STL:**\n\n| Pillar | What it does | Examples |\n|--------|--------------|----------|\n| **Containers** | Store data | `std::vector`, `std::map`, `std::set` |\n| **Algorithms** | Process data | `std::sort`, `std::find`, `std::copy` |\n| **Iterators** | Connect containers and algorithms | `begin()`, `end()`, `std::iterator` |\n| **Functors** | Callable objects | Function pointers, lambdas |\n\n**Why STL matters for games:**\n\n| Use | STL Component |\n|-----|---------------|\n| **Player inventory** | `std::vector<Item>` |\n| **Enemy roster** | `std::list<Enemy*>` |\n| **Item database** | `std::unordered_map<int, Item>` |\n| **High scores** | `std::set<int>` |\n| **Search/sort** | `std::find`, `std::sort` |\n\n**Benefits of using STL:**\n\n| Benefit | Why |\n|---------|-----|\n| **Performance** | Highly optimized |\n| **Reliability** | Well-tested |\n| **Portability** | Works on all platforms |\n| **Productivity** | Write less code |\n| **Readability** | Standard naming |\n\n**Common STL Containers:**\n\n| Container | Use |\n|-----------|-----|\n| `std::vector` | Dynamic array, fast random access |\n| `std::array` | Fixed-size array |\n| `std::list` | Doubly-linked list |\n| `std::map` | Key-value pairs (sorted) |\n| `std::unordered_map` | Key-value pairs (hash table) |\n| `std::set` | Unique elements (sorted) |\n| `std::unordered_set` | Unique elements (hash table) |\n| `std::queue` | FIFO queue |\n| `std::stack` | LIFO stack |\n| `std::deque` | Double-ended queue |\n\n**PlusPlus-chan says:**\n\"The STL is your toolbox. You could build everything from scratch — but why would you? Use the tools. Build your game, not the wheel.\"",
+    "openingDialogue": "The STL: your game dev toolkit. Ready to use. ⚔️"
   },
   "phase2": {
     "brokenCode": "",
     "errorMessage": "",
-    "explanation": "Conceptual lesson — no broken code!\n\nCommon misconception: \"I should always use ArrayList because it's the most popular.\"\n\nActually: ArrayList isn't always the best choice! If you're frequently inserting/deleting at the beginning of a list, LinkedList would be more efficient.\n\nExample:\n• ArrayList: O(1) for get, O(n) for insert at beginning\n• LinkedList: O(n) for get, O(1) for insert at beginning\n\nChoose based on your specific use case!\n\nAnother misconception: \"HashSet is faster than TreeSet.\"\n\nActually: HashSet is O(1) for operations, TreeSet is O(log n). If you need sorted order, TreeSet is your only choice, but if you don't need order, HashSet is faster."
+    "explanation": "Conceptual lesson — no broken code here!\n\n**Common misconception:** \"STL is slow, I should write my own containers.\"\n\nActually: STL is highly optimized. Writing your own containers is rarely faster unless you have very specific needs. The STL has been refined over decades.\n\n**Another misconception:** \"STL is hard to learn.\"\n\nActually: STL containers work similarly. Once you learn `std::vector`, you can use most other containers easily. They share common interfaces.\n\n**PlusPlus-chan says:**\n\"Don't reinvent the wheel. The STL is your friend. Use it.\""
   },
   "phase3": {
-    "prompt": "Which collection should you use for:\n\n\"A list of students where you frequently need to access students by their ID number\"\n\nA) ArrayList\nB) LinkedList\nC) HashSet\nD) HashMap\n\nSelect the BEST choice.",
+    "prompt": "Which statement about the STL is TRUE?\n\nA) The STL is an external library you need to download separately\nB) STL containers are not well-suited for game development\nC) STL provides containers, algorithms, and iterators\nD) `std::vector` is a fixed-size container\n\nSelect the CORRECT answer.",
     "validationPattern": {
-      "mcqAnswer": "D"
+      "mcqAnswer": "C"
     },
     "dialogueHints": [
-      "Think about what you're using to access the data...",
-      "ID number → key, student → value",
-      "What collection stores key-value pairs?"
+      "Think about what the STL actually includes.",
+      "The STL is part of the C++ Standard Library.",
+      "What are the four pillars of the STL?"
     ],
     "solution": null,
-    "openingDialogue": "Collections — choose the right container for the job! 📦"
+    "openingDialogue": "Let's see if you understand the STL. 🤔"
   },
   "xpReward": 10
 }
