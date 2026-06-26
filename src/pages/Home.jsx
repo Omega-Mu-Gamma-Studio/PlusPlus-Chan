@@ -62,11 +62,11 @@ const Home = () => {
         <h2 className="home-section-title">Syllabus</h2>
         <div className="home-unit-list">
           {[
-            { id: 1, title: 'OOP & C++ Fundamentals', lessons: 15 },
-            { id: 2, title: 'Inheritance & Interfaces',  lessons: 15 },
-            { id: 3, title: 'Exception Handling & I/O',  lessons: 15 },
-            { id: 4, title: 'Collections & Threads',     lessons: 15 },
-            { id: 5, title: 'C++FX & UI',               lessons: 15 },
+            { id: 1, title: 'C++ Foundations', lessons: 15 },
+            { id: 2, title: 'Object Oriented C++',  lessons: 15 },
+            { id: 3, title: 'Memory & Pointers',  lessons: 15 },
+            { id: 4, title: 'STL & Templates',     lessons: 15 },
+            { id: 5, title: 'File I/O, Error Handling & Shipping',               lessons: 15 },
           ].map(unit => {
             const unlocked = isUnitUnlocked(unit.id);
             return (
