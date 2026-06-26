@@ -1,5 +1,5 @@
 /* ============================================
-   JAVA-CHAN DESIGN SYSTEM
+   PlusPlus-Chan DESIGN SYSTEM
    All CSS variables live here. Never hardcode
    colors or spacing anywhere else.
    ============================================ */
@@ -15,7 +15,7 @@
   --color-border:       rgba(255, 255, 255, 0.08);
   --color-border-accent:rgba(255, 180, 220, 0.3);
 
-  /* --- Java-chan Brand Colors --- */
+  /* --- PlusPlus-Chan Brand Colors --- */
   --color-pink:         #ff6eb4;
   --color-pink-light:   #ffaad4;
   --color-pink-dark:    #cc4a8a;
@@ -47,8 +47,8 @@
   /* --- Sizing --- */
   --sidebar-width:      280px;
   --bottombar-height:   64px;
-  --javachan-width:     180px;
-  --javachan-height:    220px;
+  --pluspluschan-width:     180px;
+  --pluspluschan-height:    220px;
   --topbar-height:      56px;
 
   /* --- Radii --- */

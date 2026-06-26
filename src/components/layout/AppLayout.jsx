@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../ui/Sidebar';
 import BottomBar from '../ui/BottomBar';
-import JavaChan from '../character/JavaChan';
+import pluspluschan from '../character/pluspluschan';
 import { useProgress } from '../../hooks/useProgress';
 import { getShopItem } from '../../data/shopItems';
 import './AppLayout.css';
@@ -16,7 +16,7 @@ import './AppLayout.css';
  *   - TopBar (hamburger + app title)
  *   - Main content area (rendered by React Router via <Outlet>)
  *   - BottomBar (XP, progress)
- *   - JavaChan (bottom-right, always present)
+ *   - pluspluschan (bottom-right, always present)
  */
 const AppLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -54,7 +54,7 @@ const AppLayout = () => {
           <span />
         </button>
         <span className="topbar-title">
-          <span className="topbar-title-main">Java</span>
+          <span className="topbar-title-main">C++</span>
           <span className="topbar-title-accent">chan</span>
         </span>
       </header>
@@ -67,8 +67,8 @@ const AppLayout = () => {
       {/* Bottom bar */}
       <BottomBar />
 
-      {/* Java-chan character — always visible */}
-      <JavaChan />
+      {/* PlusPlus-Chan character — always visible */}
+      <pluspluschan />
     </div>
   );
 };

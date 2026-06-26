@@ -11,17 +11,17 @@ const Home = () => {
 
   useEffect(() => {
     setExpression('idle');
-    setDialogue("Welcome! Ready to learn Java? ✨");
+    setDialogue("Welcome! Ready to learn C++? ✨");
   }, []);
 
   return (
     <div className="home-page">
       <div className="home-hero">
         <h1 className="home-title">
-          Learn Java with <span className="home-title-accent">Java-chan</span>
+          Learn C++ with <span className="home-title-accent">PlusPlus-Chan</span>
         </h1>
         <p className="home-subtitle">
-          No boring syntax lectures. Just you, Java-chan, and working code.
+          No boring syntax lectures. Just you, PlusPlus-Chan, and working code.
         </p>
 
         <div className="home-actions">
@@ -62,11 +62,11 @@ const Home = () => {
         <h2 className="home-section-title">Syllabus</h2>
         <div className="home-unit-list">
           {[
-            { id: 1, title: 'OOP & Java Fundamentals', lessons: 15 },
+            { id: 1, title: 'OOP & C++ Fundamentals', lessons: 15 },
             { id: 2, title: 'Inheritance & Interfaces',  lessons: 15 },
             { id: 3, title: 'Exception Handling & I/O',  lessons: 15 },
             { id: 4, title: 'Collections & Threads',     lessons: 15 },
-            { id: 5, title: 'JavaFX & UI',               lessons: 15 },
+            { id: 5, title: 'C++FX & UI',               lessons: 15 },
           ].map(unit => {
             const unlocked = isUnitUnlocked(unit.id);
             return (

@@ -1,7 +1,7 @@
 /**
- * javaHighlighter.js
+ * C++Highlighter.js
  * 
- * Zero-dependency Java tokenizer.
+ * Zero-dependency C++ tokenizer.
  * Returns an HTML string with <span class="token-*"> wrappers.
  * Used by CodeBlock.jsx.
  * 

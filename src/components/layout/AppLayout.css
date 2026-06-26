@@ -73,8 +73,8 @@
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
-  /* Right padding to keep content from going under Java-chan */
-  padding-right: calc(var(--javachan-width) + 16px);
+  /* Right padding to keep content from going under PlusPlus-Chan */
+  padding-right: calc(var(--pluspluschan-width) + 16px);
 }
 
 /* ---- Sidebar backdrop ---- */

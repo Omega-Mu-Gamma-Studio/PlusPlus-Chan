@@ -24,7 +24,7 @@ const UNIT_DATA = {
 };
 
 const LESSON_DATA = {
-  // Unit 1 — OOP & Java Fundamentals
+  // Unit 1 — OOP & C++ Fundamentals
   '1.1':  () => import('../data/lessons/unit1/1.1.json'),
   '1.2':  () => import('../data/lessons/unit1/1.2.json'),
   '1.3':  () => import('../data/lessons/unit1/1.3.json'),
@@ -92,7 +92,7 @@ const LESSON_DATA = {
   '4.14': () => import('../data/lessons/unit4/4.14.json'),
   '4.15': () => import('../data/lessons/unit4/4.15.json'),
 
-  // Unit 5 — JavaFX GUI
+  // Unit 5 — C++FX GUI
   '5.1':  () => import('../data/lessons/unit5/5.1.json'),
   '5.2':  () => import('../data/lessons/unit5/5.2.json'),
   '5.3':  () => import('../data/lessons/unit5/5.3.json'),

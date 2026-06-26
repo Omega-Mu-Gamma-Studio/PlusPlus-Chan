@@ -15,7 +15,7 @@ import './Shop.css';
  * Thumbnails:
  *   - imageSrc set         → real art, render it directly.
  *   - wallpaper, no art    → CSS gradient placeholder.
- *   - outfit, no art       → Java-chan's real "teaching" sprite with
+ *   - outfit, no art       → PlusPlus-Chan's real "teaching" sprite with
  *                            the outfit's CSS filter tint applied, so
  *                            the preview is still recognizably her.
  */
@@ -96,7 +96,7 @@ const DownloadWallpaperCard = ({ item, level }) => {
     if (!item.imageSrc) return;
     const a = document.createElement('a');
     a.href = item.imageSrc;
-    a.download = item.fileName || 'javachan-wallpaper.png';
+    a.download = item.fileName || 'pluspluschan-wallpaper.png';
     a.click();
     setDownloaded(true);
     setTimeout(() => setDownloaded(false), 2500);
@@ -261,7 +261,7 @@ const Shop = () => {
       <section className="shop-section">
         <h2 className="shop-section-title">🧡 Default Outfit</h2>
         <p className="shop-section-note">
-          Java-chan's signature look — always available, can't be removed.
+          PlusPlus-Chan's signature look — always available, can't be removed.
         </p>
         <div className="shop-grid">
           <motion.div
@@ -302,7 +302,7 @@ const Shop = () => {
       <section className="shop-section">
         <h2 className="shop-section-title">👘 Outfits</h2>
         <p className="shop-section-note">
-          Unlock outfits as you level up — equip them to change Java-chan's look.
+          Unlock outfits as you level up — equip them to change PlusPlus-Chan's look.
           Some outfits use real art; others are tinted previews until new art arrives.
         </p>
         <div className="shop-grid">

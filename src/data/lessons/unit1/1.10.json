@@ -1,31 +1,33 @@
 {
   "id": "1.10",
-  "title": "Arrays",
+  "title": "for loops — spawning things repeatedly",
   "type": "coding",
   "phase1": {
-    "code": "public class ArraysExample {\n    public static void main(String[] args) {\n        // Declaration and initialization\n        int[] numbers = {10, 20, 30, 40, 50};\n        \n        // Accessing elements\n        System.out.println(\"First element: \" + numbers[0]);\n        System.out.println(\"Last element: \" + numbers[4]);\n        \n        // Array length\n        System.out.println(\"Array length: \" + numbers.length);\n        \n        // Looping through array\n        System.out.println(\"=== For loop ===\");\n        for (int i = 0; i < numbers.length; i++) {\n            System.out.println(\"numbers[\" + i + \"] = \" + numbers[i]);\n        }\n        \n        // For-each loop\n        System.out.println(\"=== For-each loop ===\");\n        for (int num : numbers) {\n            System.out.println(num);\n        }\n        \n        // Declaring empty array\n        String[] names = new String[3];\n        names[0] = \"Alice\";\n        names[1] = \"Bob\";\n        names[2] = \"Charlie\";\n        \n        System.out.println(\"Names: \" + names[0] + \", \" + names[1] + \", \" + names[2]);\n    }\n}",
-    "output": "First element: 10\nLast element: 50\nArray length: 5\n=== For loop ===\nnumbers[0] = 10\nnumbers[1] = 20\nnumbers[2] = 30\nnumbers[3] = 40\nnumbers[4] = 50\n=== For-each loop ===\n10\n20\n30\n40\n50\nNames: Alice, Bob, Charlie",
-    "explanation": "Arrays store multiple values of the SAME type:\n\nDeclaration: type[] name = {values};\nor: type[] name = new type[size];\n\nAccess: name[index] — index starts at 0!\nLength: name.length (no parentheses!)\n\nCommon mistake: ArrayIndexOutOfBoundsException — accessing an index >= length\n\nFor loop vs For-each:\n• For loop: gives you index control, can modify elements\n• For-each: cleaner syntax, but read-only (can't modify array)\n\n⚠️ Arrays are fixed size! You can't add or remove elements after creation.\n\nPro tip: Use for-each for loops where you just need to read values."
+    "code": "#include <iostream>\n#include <string>\n\nint main() {\n    std::cout << \"=== Spawning Enemies ===\" << std::endl;\n    \n    // For loop: spawn 5 enemies\n    for (int i = 0; i < 5; i++) {\n        std::cout << \"Spawned enemy #\" << (i + 1) << std::endl;\n    }\n    \n    std::cout << \"\\n=== Inventory Items ===\" << std::endl;\n    std::string items[] = {\"Health Potion\", \"Mana Potion\", \"Sword\", \"Shield\", \"Key\"};\n    \n    // Loop through array\n    for (int i = 0; i < 5; i++) {\n        std::cout << \"Item \" << (i + 1) << \": \" << items[i] << std::endl;\n    }\n    \n    std::cout << \"\\n=== Leveling Up ===\" << std::endl;\n    int playerLevel = 1;\n    \n    // Level up 5 times\n    for (int level = 1; level <= 5; level++) {\n        std::cout << \"Level \" << level << \" → Health +10, Attack +5\" << std::endl;\n    }\n    \n    std::cout << \"\\n=== Countdown ===\" << std::endl;\n    // Countdown from 10\n    for (int i = 10; i > 0; i--) {\n        std::cout << i << \"...\" << std::endl;\n    }\n    std::cout << \"GO!\" << std::endl;\n    \n    std::cout << \"\\n=== Nested Loops (Grid) ===\" << std::endl;\n    // 3x3 grid\n    for (int row = 0; row < 3; row++) {\n        for (int col = 0; col < 3; col++) {\n            std::cout << \"[\" << row << \"][\" << col << \"] \";\n        }\n        std::cout << std::endl;\n    }\n    \n    return 0;\n}",
+    "output": "=== Spawning Enemies ===\nSpawned enemy #1\nSpawned enemy #2\nSpawned enemy #3\nSpawned enemy #4\nSpawned enemy #5\n\n=== Inventory Items ===\nItem 1: Health Potion\nItem 2: Mana Potion\nItem 3: Sword\nItem 4: Shield\nItem 5: Key\n\n=== Leveling Up ===\nLevel 1 → Health +10, Attack +5\nLevel 2 → Health +10, Attack +5\nLevel 3 → Health +10, Attack +5\nLevel 4 → Health +10, Attack +5\nLevel 5 → Health +10, Attack +5\n\n=== Countdown ===\n10...\n9...\n8...\n7...\n6...\n5...\n4...\n3...\n2...\n1...\nGO!\n\n=== Nested Loops (Grid) ===\n[0][0] [0][1] [0][2] \n[1][0] [1][1] [1][2] \n[2][0] [2][1] [2][2]",
+    "explanation": "🎮 **For loops are for repetition with a counter.**\n\n**Syntax:**\n```cpp\nfor (initialization; condition; increment) {\n    // Code runs while condition is true\n}\n```\n\n**Parts:**\n| Part | What it does |\n|------|--------------|\n| Initialization | `int i = 0` — runs once at start |\n| Condition | `i < 5` — checked before each iteration |\n| Increment | `i++` — runs after each iteration |\n\n**Common patterns:**\n| Pattern | Code | Use |\n|----------|------|-----|\n| Count up | `for (int i = 0; i < 10; i++)` | 0 to 9 |\n| Count down | `for (int i = 10; i > 0; i--)` | 10 to 1 |\n| Step by 2 | `for (int i = 0; i < 10; i += 2)` | 0, 2, 4, 6, 8 |\n\n**Nested loops:**\nWhen a loop is inside another loop. Used for:\n- 2D grids (maps, inventory screens)\n- Multi-dimensional arrays\n- Combinations (all pairs of items)\n\n**Game use cases:**\n- Spawning multiple enemies\n- Generating loot drops\n- Looping through inventory\n- Grid-based maps",
+    "openingDialogue": "For loops: spawn, iterate, repeat. Every game uses them. 🔄"
   },
   "phase2": {
-    "brokenCode": "public class ArraysExample {\n    public static void main(String[] args) {\n        int[] numbers = {10, 20, 30, 40, 50};\n        \n        // Trying to access index 5 (which doesn't exist)\n        System.out.println(numbers[5]);\n    }\n}",
-    "errorMessage": "Exception in thread \"main\" java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5\n        at ArraysExample.main(ArraysExample.java:6)",
-    "explanation": "ArrayIndexOutOfBoundsException! You tried to access index 5, but valid indices are 0,1,2,3,4.\n\nRemember: arrays are 0-indexed. The last index is length - 1.\n\nAlways check: is my index < array.length?\n\nA safe pattern:\nif (index >= 0 && index < array.length) {\n    // safe to access\n}"
+    "brokenCode": "#include <iostream>\n\nint main() {\n    int items[3] = {10, 20, 30};\n    \n    // Off-by-one error: accessing out of bounds\n    for (int i = 0; i <= 3; i++) {\n        std::cout << items[i] << std::endl;\n    }\n    \n    return 0;\n}",
+    "errorMessage": "10\n20\n30\n32767\n(No error — but the last value is GARBAGE! Out-of-bounds access!)",
+    "explanation": "You're accessing index 3, which is out of bounds!\n\nArray `items` has indices 0, 1, 2. Index 3 doesn't exist.\n\n**What's happening:**\n1. `i = 0, 1, 2` → prints 10, 20, 30 (correct)\n2. `i = 3` → out of bounds, prints whatever is in memory (garbage)\n\n**The fix:**\n```cpp\nfor (int i = 0; i < 3; i++) {  // Use <, not <=\n    // ...\n}\n```\n\n**PlusPlus-chan says:**\n\"Off-by-one errors are the most common mistake in C++. Always double-check your loop bounds. Use `<` for arrays, not `<=`.\""
   },
   "phase3": {
-    "prompt": "Write a program that:\n1. Creates an array of 5 integers: 5, 10, 15, 20, 25\n2. Prints each element using a for loop\n3. Prints each element using a for-each loop",
+    "prompt": "Write a C++ program that:\n\n1. Creates an array of 5 enemies: `{\"Goblin\", \"Orc\", \"Skeleton\", \"Dragon\", \"Golem\"}`\n2. Uses a `for` loop to print each enemy with a number: \"Enemy 1: Goblin\"\n3. Uses a `for` loop that counts down from 5 to 1: \"Spawning wave in 5... 4... 3... 2... 1...\"\n4. Prints \"Wave spawned!\"\n\nRequirements:\n- Use `#include <iostream>` and `#include <string>`\n- Use an array of `std::string`\n- Use two different `for` loops\n- Countdown should have dots after each number",
     "validationPattern": {
-      "required": ["int[]", "for", "for-each"],
-      "forbidden": [],
-      "fullRegex": "int\\s*\\[\\s*\\]\\s*\\w+\\s*=\\s*\\{[^}]*\\}[\\s\\S]*for\\s*\\(\\s*int\\s+\\w+\\s*=\\s*0[\\s\\S]*for\\s*\\(\\s*int\\s+\\w+\\s*:"
+      "required": ["std::string", "for", "enemies", "i > 0", "std::cout"],
+      "forbidden": ["using namespace"],
+      "fullRegex": "std::string\\s+\\w+\\[\\]\\s*=\\s*\\{[\\s\\S]*\\}[\\s\\S]*for\\s*\\(\\s*int\\s+\\w+\\s*=\\s*0[\\s\\S]*\\}\"\\s*<\\s*5[\\s\\S]*for\\s*\\(\\s*int\\s+\\w+\\s*=\\s*5\\s*;\\s*\\w+\\s*>\\s*0\\s*;\\s*\\w+--\\)"
     },
     "dialogueHints": [
-      "Initialize the array with {5, 10, 15, 20, 25}",
-      "For loop: use i < array.length",
-      "For-each: for (int num : numbers)"
+      "Array: `std::string enemies[] = {\"Goblin\", \"Orc\", ...};`",
+      "First loop: `for (int i = 0; i < 5; i++)`",
+      "Second loop: `for (int i = 5; i > 0; i--)`",
+      "Countdown: `std::cout << i << \"...\" << std::endl;`"
     ],
-    "solution": "public class ArrayPractice {\n    public static void main(String[] args) {\n        int[] numbers = {5, 10, 15, 20, 25};\n        \n        System.out.println(\"=== For loop ===\");\n        for (int i = 0; i < numbers.length; i++) {\n            System.out.println(numbers[i]);\n        }\n        \n        System.out.println(\"=== For-each loop ===\");\n        for (int num : numbers) {\n            System.out.println(num);\n        }\n    }\n}",
-    "openingDialogue": "Time to store multiple values in one variable! 📚"
+    "solution": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string enemies[] = {\"Goblin\", \"Orc\", \"Skeleton\", \"Dragon\", \"Golem\"};\n    \n    std::cout << \"=== Enemy List ===\" << std::endl;\n    for (int i = 0; i < 5; i++) {\n        std::cout << \"Enemy \" << (i + 1) << \": \" << enemies[i] << std::endl;\n    }\n    \n    std::cout << \"\\n=== Wave Countdown ===\" << std::endl;\n    for (int i = 5; i > 0; i--) {\n        std::cout << i << \"...\" << std::endl;\n    }\n    std::cout << \"Wave spawned!\" << std::endl;\n    \n    return 0;\n}",
+    "openingDialogue": "Spawning wave incoming! For loops make it happen. 🧟⚔️"
   },
   "xpReward": 10
 }
