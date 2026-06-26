@@ -7,10 +7,10 @@ import './CodeBlock.css';
  * Uses a pure CSS approach with <span> tokens.
  * 
  * For Phase 1, we do simple keyword-based tokenization.
- * The tokenizer lives in utils/C++Highlighter.js
+ * The tokenizer lives in utils/CppHighlighter.js
  */
 
-import { tokenize } from '../../utils/C++Highlighter';
+import { tokenize } from '../../utils/CppHighlighter';
 
 const CodeBlock = ({ code = '', label = '', showLineNumbers = true }) => {
   if (!code || code.trim() === '' || code.startsWith('// No code')) {

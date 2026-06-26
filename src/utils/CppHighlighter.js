@@ -1,5 +1,5 @@
 /**
- * C++Highlighter.js
+ * CppHighlighter.js
  * 
  * Zero-dependency C++ tokenizer.
  * Returns an HTML string with <span class="token-*"> wrappers.

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../ui/Sidebar';
 import BottomBar from '../ui/BottomBar';
-import pluspluschan from '../character/pluspluschan';
+import PlusPlusChan from '../character/PlusPlusChan';
 import { useProgress } from '../../hooks/useProgress';
 import { getShopItem } from '../../data/shopItems';
 import './AppLayout.css';
@@ -16,7 +16,7 @@ import './AppLayout.css';
  *   - TopBar (hamburger + app title)
  *   - Main content area (rendered by React Router via <Outlet>)
  *   - BottomBar (XP, progress)
- *   - pluspluschan (bottom-right, always present)
+ *   - PlusPlusChan (bottom-right, always present)
  */
 const AppLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -68,7 +68,7 @@ const AppLayout = () => {
       <BottomBar />
 
       {/* PlusPlus-Chan character — always visible */}
-      <pluspluschan />
+      <PlusPlusChan />
     </div>
   );
 };
