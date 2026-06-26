@@ -18,6 +18,7 @@ export function useProgress() {
     unlockedUnits: store.unlockedUnits,
     equippedWallpaper: store.equippedWallpaper,
     equippedOutfit: store.equippedOutfit,
+    completedLessons: store.completedLessons,
 
     isCompleted: store.isCompleted,
     isUnitUnlocked: store.isUnitUnlocked,

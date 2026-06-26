@@ -1,50 +1,15 @@
-/**
- * shopItems.js
- *
- * Defines every cosmetic the player can unlock by leveling up.
- * One item unlocks per level (see MAX_LEVEL in utils/xpCalculator.js),
- * alternating between a wallpaper and a PlusPlus-Chan outfit.
- *
- * ── ART STATUS ───────────────────────────────────────────────────
- * Wallpapers: all placeholders (CSS gradients, `imageSrc: null`).
- *
- * Outfits: real sprite art lives under /public/sprites/uniforms/<name>/,
- * one PNG per expression (teaching/idle/oops/thinking/frustrated/excited),
- * referenced via `spriteOverrides` — shaped exactly like pluspluschan.jsx's
- * SPRITE_MAP ({ idle: { src, blend }, ... }). Real-art outfits also set
- * `filter: 'none'` since the tint was only ever a stand-in.
- *
- *   ✅ outfit-default  (always-equipped base look)
- *   ✅ outfit-hoodie   → /sprites/uniforms/casual/
- *   ✅ outfit-school   → /sprites/uniforms/sailor/
- *   ✅ outfit-magical  → /sprites/uniforms/mage/
- *   ⏳ outfit-hacker   → still a CSS filter tint, no art yet
- *   ⏳ outfit-legendary→ still a CSS filter tint, no art yet
- *
- * ── ADDING REAL ART FOR THE REMAINING OUTFITS ────────────────────
- * 1. Drop 6 PNGs under /public/sprites/uniforms/<name>/, named
- *    teaching/idle/oops/thinking/frustrated/excited.png (matches the
- *    pattern of the default sprites at /public/sprites/).
- * 2. Set that item's `spriteOverrides` to the same shape as the ✅
- *    entries above, and set `filter: 'none'`.
- * That's it — Shop.jsx and pluspluschan.jsx both already read
- * `spriteOverrides` automatically, no other file needs to change.
- *
- * Wallpapers follow the same idea: set `imageSrc` to a path under
- * /public/sprites/wallpapers/ once art exists.
- */
-
 export const SHOP_ITEMS = [
   {
     id: 'wallpaper-default',
     type: 'wallpaper',
-    name: 'Terminal Black',
+    name: 'Midnight Violet',
     requiredLevel: 1,
-    emoji: '🖤',
-    accent: '#6eb4ff',
-    gradient: 'linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%)',
+    emoji: '🌌',
+    accent: '#7c6fff',
+    themeClass: '',
+    gradient: 'linear-gradient(135deg, #07050f 0%, #0e0b1a 100%)',
     imageSrc: null,
-    description: 'The classic void. Where every student starts.',
+    description: 'The default. Cold, precise, and deeply purple.',
   },
   {
     id: 'outfit-default',
@@ -54,7 +19,6 @@ export const SHOP_ITEMS = [
     emoji: '🧡',
     accent: '#ff8c42',
     filter: 'none',
-    // The original orange/black hoodie sprites — always equipped by default
     spriteOverrides: {
       idle:         { src: '/sprites/teaching.png',      blend: false },
       'idle-sleep': { src: '/sprites/idle-sleeping.png', blend: true  },
@@ -66,7 +30,7 @@ export const SHOP_ITEMS = [
     },
     imageSrc: null,
     description: "PlusPlus-Chan's signature look. Always with you.",
-    isDefault: true, // marks this as the non-equippable base outfit
+    isDefault: true,
   },
   {
     id: 'outfit-hoodie',
@@ -76,29 +40,29 @@ export const SHOP_ITEMS = [
     emoji: '🧥',
     accent: '#6eb4ff',
     filter: 'none',
-    // Navy blue hoodie + jeans — real casual art
     spriteOverrides: {
-      idle:         { src: '/sprites/uniforms/casual/teaching.png',   blend: false }, // hands-open presenting = confident idle
-      'idle-sleep': { src: '/sprites/uniforms/casual/idle.png',       blend: false }, // hand-on-cheek = sleepy/waiting
-      happy:        { src: '/sprites/uniforms/casual/oops.png',       blend: false }, // wave + squiggle = sheepish "almost!"
-      thinking:     { src: '/sprites/uniforms/casual/thinking.png',   blend: false }, // finger-to-lip ? = hint mode
-      sad:          { src: '/sprites/uniforms/casual/frustrated.png', blend: false }, // double fists + scribble = wrong answer rage
-      surprised:    { src: '/sprites/uniforms/casual/excited.png',    blend: false }, // double fist pump = correct!
-      domain:       { src: '/sprites/uniforms/casual/excited.png',    blend: false }, // fist pump fullscreen
+      idle:         { src: '/sprites/uniforms/casual/teaching.png',   blend: false },
+      'idle-sleep': { src: '/sprites/uniforms/casual/idle.png',       blend: false },
+      happy:        { src: '/sprites/uniforms/casual/oops.png',       blend: false },
+      thinking:     { src: '/sprites/uniforms/casual/thinking.png',   blend: false },
+      sad:          { src: '/sprites/uniforms/casual/frustrated.png', blend: false },
+      surprised:    { src: '/sprites/uniforms/casual/excited.png',    blend: false },
+      domain:       { src: '/sprites/uniforms/casual/excited.png',    blend: false },
     },
     imageSrc: null,
     description: 'Off the clock, still ready to debug.',
   },
   {
-    id: 'wallpaper-sakura',
+    id: 'wallpaper-steel',
     type: 'wallpaper',
-    name: 'Sakura Compile',
+    name: 'Steel & Silver',
     requiredLevel: 3,
-    emoji: '🌸',
-    accent: '#ffaad4',
-    gradient: 'linear-gradient(160deg, #2a1a2e 0%, #4a1a3e 55%, #1a0f1a 100%)',
+    emoji: '⚙️',
+    accent: '#8fb8d0',
+    themeClass: 'theme-steel',
+    gradient: 'linear-gradient(160deg, #080c10 0%, #0d1520 55%, #111a22 100%)',
     imageSrc: null,
-    description: 'Cherry blossoms drifting past falling code.',
+    description: 'Compiled, metallic, precise. The machine aesthetic.',
   },
   {
     id: 'outfit-school',
@@ -108,7 +72,6 @@ export const SHOP_ITEMS = [
     emoji: '🎀',
     accent: '#b46eff',
     filter: 'none',
-    // Sailor uniform real art
     spriteOverrides: {
       idle:         { src: '/sprites/uniforms/sailor/teaching.png',   blend: false },
       'idle-sleep': { src: '/sprites/uniforms/sailor/idle.png',       blend: false },
@@ -122,15 +85,16 @@ export const SHOP_ITEMS = [
     description: 'Back to basics, sailor-collar edition.',
   },
   {
-    id: 'wallpaper-neon',
+    id: 'wallpaper-indigo-gold',
     type: 'wallpaper',
-    name: 'Neon Server Room',
+    name: 'Indigo & Gold',
     requiredLevel: 5,
-    emoji: '🌃',
-    accent: '#6eb4ff',
-    gradient: 'linear-gradient(160deg, #0a0a1f 0%, #0d1b2a 55%, #1a2e4a 100%)',
+    emoji: '👑',
+    accent: '#9b6fff',
+    themeClass: 'theme-indigo-gold',
+    gradient: 'linear-gradient(160deg, #08060f 0%, #130d28 55%, #1a1030 100%)',
     imageSrc: null,
-    description: 'Humming racks, blue light, 3 a.m. energy.',
+    description: 'Dark fantasy royalty. Deep indigo, gilded accents.',
   },
   {
     id: 'outfit-magical',
@@ -140,7 +104,6 @@ export const SHOP_ITEMS = [
     emoji: '🪄',
     accent: '#ffd700',
     filter: 'none',
-    // Real mage art — gold/black sailor-style robe + glowing { / } staff
     spriteOverrides: {
       idle:         { src: '/sprites/uniforms/mage/teaching.png',   blend: false },
       'idle-sleep': { src: '/sprites/uniforms/mage/idle.png',       blend: false },
@@ -154,15 +117,16 @@ export const SHOP_ITEMS = [
     description: 'Transforms bugs into features. Allegedly.',
   },
   {
-    id: 'wallpaper-galaxy',
+    id: 'wallpaper-crimson',
     type: 'wallpaper',
-    name: 'Galaxy Stack Overflow',
+    name: 'Crimson Debug',
     requiredLevel: 7,
-    emoji: '🌌',
-    accent: '#b46eff',
-    gradient: 'linear-gradient(160deg, #0a0518 0%, #1a0f3e 55%, #2e1a4a 100%)',
+    emoji: '🔴',
+    accent: '#ff4f7b',
+    themeClass: 'theme-crimson',
+    gradient: 'linear-gradient(160deg, #0f0508 0%, #1e0810 55%, #150510 100%)',
     imageSrc: null,
-    description: 'Somewhere out there, someone already asked your question.',
+    description: 'Blood on the compiler floor. For the fearless.',
   },
   {
     id: 'outfit-hacker',
@@ -170,7 +134,7 @@ export const SHOP_ITEMS = [
     name: 'Streetwear Hacker',
     requiredLevel: 8,
     emoji: '🕶️',
-    accent: '#6effa8',
+    accent: '#4fffb0',
     filter: 'none',
     spriteOverrides: {
       idle:         { src: '/sprites/uniforms/hacker/teaching.png',   blend: false },
@@ -185,15 +149,16 @@ export const SHOP_ITEMS = [
     description: 'All black, except the glowing green cuffs.',
   },
   {
-    id: 'wallpaper-goldenhour',
+    id: 'wallpaper-terminal',
     type: 'wallpaper',
-    name: 'Golden Hour Bytecode',
+    name: 'Terminal Green',
     requiredLevel: 9,
-    emoji: '🌇',
-    accent: '#ffcc6e',
-    gradient: 'linear-gradient(160deg, #2e1a0a 0%, #4a2e1a 55%, #1a0f0a 100%)',
+    emoji: '💻',
+    accent: '#4fffb0',
+    themeClass: 'theme-terminal',
+    gradient: 'linear-gradient(160deg, #050f08 0%, #081a0e 55%, #050f08 100%)',
     imageSrc: null,
-    description: 'The sun sets. The build still passes.',
+    description: 'Classic hacker terminal. Green on black, forever.',
   },
   {
     id: 'outfit-legendary',
@@ -201,7 +166,7 @@ export const SHOP_ITEMS = [
     name: 'Legendary Kimono',
     requiredLevel: 10,
     emoji: '👘',
-    accent: '#ff6eb4',
+    accent: '#7c6fff',
     filter: 'none',
     spriteOverrides: {
       idle:         { src: '/sprites/uniforms/kimono/teaching.png',   blend: false },
@@ -213,7 +178,7 @@ export const SHOP_ITEMS = [
       domain:       { src: '/sprites/uniforms/kimono/excited.png',    blend: false },
     },
     imageSrc: null,
-    description: 'For students who reached Level 10. Respect.',
+    description: 'For those who reached Level 10. Respect.',
   },
 ];
 
@@ -221,37 +186,14 @@ export const WALLPAPERS = SHOP_ITEMS.filter((i) => i.type === 'wallpaper');
 export const OUTFITS = SHOP_ITEMS.filter((i) => i.type === 'outfit' && !i.isDefault);
 export const DEFAULT_OUTFIT = SHOP_ITEMS.find((i) => i.isDefault);
 
-/**
- * DOWNLOADABLE_WALLPAPERS
- *
- * These are standalone art pieces the player can save to their device
- * (phone/desktop wallpaper). They are NOT equipped — they have no
- * effect on the app's appearance. The Shop renders a "Download" button
- * that triggers a native download of the image file.
- *
- * Art lives under /public/wallpapers/<filename>.png (or .jpg).
- * Set `imageSrc: null` until real art is ready — the card will show
- * a gradient placeholder with the emoji centered.
- *
- * Fields:
- *   id           – unique string
- *   name         – display name
- *   emoji        – shown in placeholder thumbnail
- *   gradient     – CSS gradient for the placeholder background
- *   accent       – glow / tint color
- *   imageSrc     – path to the downloadable image (null = placeholder)
- *   fileName     – suggested download filename (e.g. "pluspluschan-sakura.png")
- *   description  – flavor text
- *   requiredLevel – unlock gate (same system as themes / outfits)
- */
 export const DOWNLOADABLE_WALLPAPERS = [
   {
     id: 'dl-wallpaper-01',
     name: 'PlusPlus-Chan: Sakura Study',
     emoji: '🌸',
     gradient: 'linear-gradient(160deg, #2a1a2e 0%, #4a1a3e 60%, #1a0f1a 100%)',
-    accent: '#ffaad4',
-    imageSrc: '/wallpapers/sakura-study.png',         // swap in e.g. '/wallpapers/sakura-study.png' when art is ready
+    accent: '#b46eff',
+    imageSrc: '/wallpapers/sakura-study.png',
     fileName: 'pluspluschan-sakura-study.png',
     description: 'PlusPlus-Chan under a cherry blossom tree, textbook in hand.',
     requiredLevel: 3,
@@ -260,8 +202,8 @@ export const DOWNLOADABLE_WALLPAPERS = [
     id: 'dl-wallpaper-02',
     name: 'Neon Night Compile',
     emoji: '🌃',
-    gradient: 'linear-gradient(160deg, #0a0a1f 0%, #0d1b2a 55%, #1a2e4a 100%)',
-    accent: '#6eb4ff',
+    gradient: 'linear-gradient(160deg, #07050f 0%, #0e0b1a 55%, #130f22 100%)',
+    accent: '#7c6fff',
     imageSrc: '/wallpapers/pluspluschan-neon-night.png',
     fileName: 'pluspluschan-neon-night.png',
     description: 'Late-night session vibes — city glow, code scrolling.',
