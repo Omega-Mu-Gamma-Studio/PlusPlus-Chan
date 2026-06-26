@@ -18,8 +18,8 @@
 
 /* ── Sprite wrapper (handles bob animation) ── */
 .pluspluschan-sprite-wrap {
-  width: 180px;
-  height: 220px;
+  width: var(--pluspluschan-width);
+  height: var(--pluspluschan-height);
   display: flex;
   align-items: flex-end;
   justify-content: center;
