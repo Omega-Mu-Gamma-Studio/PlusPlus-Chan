@@ -3,14 +3,14 @@ import './CodeBlock.css';
 /**
  * CodeBlock.jsx
  * 
- * Renders syntax-highlighted Java code.
+ * Renders syntax-highlighted C++ code.
  * Uses a pure CSS approach with <span> tokens.
  * 
  * For Phase 1, we do simple keyword-based tokenization.
- * The tokenizer lives in utils/javaHighlighter.js
+ * The tokenizer lives in utils/CppHighlighter.js
  */
 
-import { tokenize } from '../../utils/javaHighlighter';
+import { tokenize } from '../../utils/CppHighlighter';
 
 const CodeBlock = ({ code = '', label = '', showLineNumbers = true }) => {
   if (!code || code.trim() === '' || code.startsWith('// No code')) {

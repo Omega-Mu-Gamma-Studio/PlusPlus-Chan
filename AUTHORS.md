@@ -2,7 +2,7 @@
 
 ## Omega Mu Gamma Studio
 
-Java-chan is a project by **Omega Mu Gamma Studio** — a student-built open-source studio from St. Xavier's Catholic College of Engineering, Tamil Nadu, India.
+PlusPlus-Chan is a project by **Omega Mu Gamma Studio** — a student-built open-source studio from St. Xavier's Catholic College of Engineering, Tamil Nadu, India.
 
 ---
 
@@ -10,7 +10,7 @@ Java-chan is a project by **Omega Mu Gamma Studio** — a student-built open-sou
 
 ### Alberto Felix
 **Founder & Lead Developer — Omega Mu Gamma Studio**
-Project architect, lead developer, and character art curator for Java-chan.
+Project architect, lead developer, and character art curator for PlusPlus-Chan.
 Responsible for the full application architecture, lesson content, XP/progression system, shop system, and sprite integration.
 
 - GitHub: [@albertofelix08](https://github.com/albertofelix08)
@@ -20,7 +20,7 @@ Responsible for the full application architecture, lesson content, XP/progressio
 ## Acknowledgements
 
 **Character Art**
-Java-chan's sprites were generated using AI tools and hand-curated for expression consistency by Alberto Felix. All character designs are proprietary to Omega Mu Gamma Studio.
+PlusPlus-Chan's sprites were generated using AI tools and hand-curated for expression consistency by Alberto Felix. All character designs are proprietary to Omega Mu Gamma Studio.
 
 ---
 

@@ -1,36 +1,33 @@
 {
   "id": "1.6",
-  "title": "Operators",
+  "title": "Taking Input — the player types something",
   "type": "coding",
   "phase1": {
-    "code": "public class OperatorsExample {\n    public static void main(String[] args) {\n        // Arithmetic\n        int a = 10, b = 3;\n        System.out.println(\"a + b = \" + (a + b));\n        System.out.println(\"a - b = \" + (a - b));\n        System.out.println(\"a * b = \" + (a * b));\n        System.out.println(\"a / b = \" + (a / b));\n        System.out.println(\"a % b = \" + (a % b));\n        \n        // Relational\n        System.out.println(\"a > b? \" + (a > b));\n        System.out.println(\"a == b? \" + (a == b));\n        \n        // Logical\n        boolean x = true, y = false;\n        System.out.println(\"x && y = \" + (x && y));\n        System.out.println(\"x || y = \" + (x || y));\n        System.out.println(\"!x = \" + !x);\n        \n        // Ternary\n        int max = (a > b) ? a : b;\n        System.out.println(\"Max: \" + max);\n    }\n}",
-    "output": "a + b = 13\na - b = 7\na * b = 30\na / b = 3\na % b = 1\na > b? true\na == b? false\nx && y = false\nx || y = true\n!x = false\nMax: 10",
-    "explanation": "Java has several types of operators:\n\nArithmetic: + - * / %\n• / does integer division (10/3 = 3, not 3.333)\n• % gives remainder (10%3 = 1)\n\nRelational: > < >= <= == !=\n• Compare values, returns boolean\n\nLogical: && (AND), || (OR), ! (NOT)\n• && — both must be true\n• || — at least one must be true\n• ! — flips the value\n\nTernary: condition ? valueIfTrue : valueIfFalse\n• Shorthand for if-else\n• (a > b) ? a : b means \"if a > b, use a, otherwise use b\"\n\nPro tip: Use parentheses to make operator order clear!"
+    "code": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string playerName;\n    int playerAge;\n    \n    // Ask for input\n    std::cout << \"Welcome, adventurer!\" << std::endl;\n    std::cout << \"What is your name? \";\n    std::cin >> playerName;\n    \n    std::cout << \"How old are you, \" << playerName << \"? \";\n    std::cin >> playerAge;\n    \n    std::cout << \"\\n=== Character Sheet ===\" << std::endl;\n    std::cout << \"Name: \" << playerName << std::endl;\n    std::cout << \"Age: \" << playerAge << std::endl;\n    \n    // Input with multiple words\n    std::cin.ignore();  // Clear the buffer\n    std::string fullName;\n    std::cout << \"Enter your full name (with spaces): \";\n    std::getline(std::cin, fullName);\n    std::cout << \"Full name: \" << fullName << std::endl;\n    \n    return 0;\n}",
+    "output": "Welcome, adventurer!\nWhat is your name? Hero\nHow old are you, Hero? 25\n\n=== Character Sheet ===\nName: Hero\nAge: 25\nEnter your full name (with spaces): Hero the Brave\nFull name: Hero the Brave",
+    "explanation": "🎮 **Input is how the player controls your game.**\n\n`std::cin` — Console input. It reads what the player types.\n\n**Reading different types:**\n| Type | How to read |\n|------|-------------|\n| `int` | `std::cin >> variable;` |\n| `double` | `std::cin >> variable;` |\n| `std::string` (no spaces) | `std::cin >> variable;` |\n| `std::string` (with spaces) | `std::getline(std::cin, variable);` |\n\n**Common issue (and fix):**\n- `std::cin >>` leaves a newline in the buffer\n- `std::cin.ignore()` clears the buffer before `getline()`\n\n**Game design note:**\nIn a real game, you'd use input for:\n- Character creation (name, class, stats)\n- Menu selections (\"Press 1 to attack\")\n- Saving/loading (\"Enter save name:\")\n\n**PlusPlus-chan says:**\n\"Java-chan has `Scanner`. I have `std::cin`. Same concept, but I don't hide the buffer management from you. You need to know why `getline()` behaves differently.\"",
+    "openingDialogue": "Now the player can talk back. This is when it gets real. 🎮💬"
   },
   "phase2": {
-    "brokenCode": "public class OperatorsExample {\n    public static void main(String[] args) {\n        int a = 10, b = 3;\n        System.out.println(\"a / b = \" + a / b);  // Problem!\n        System.out.println(\"a + b = \" + (a + b));\n    }\n}",
-    "errorMessage": "OperatorsExample.java:4: error: bad operand types for binary operator '+'\n        System.out.println(\"a / b = \" + a / b);\n                                      ^\n  first type:  String\n  second type: int",
-    "explanation": "Java evaluates left to right with operator precedence!\n\n\"a / b = \" + a / b is evaluated as (\"a / b = \" + a) / b — you can't divide a string by an int!\n\nThe fix: use parentheses to force the division first:\n\"a / b = \" + (a / b)\n\nAlways wrap arithmetic in parentheses when combining with strings!"
+    "brokenCode": "#include <iostream>\n#include <string>\n\nint main() {\n    int age;\n    std::string name;\n    \n    std::cout << \"Enter your age: \";\n    std::cin >> age;\n    \n    std::cout << \"Enter your name: \";\n    std::getline(std::cin, name);  // Problem: this skips!\n    \n    std::cout << \"Name: \" << name << \", Age: \" << age << std::endl;\n    return 0;\n}",
+    "errorMessage": "Enter your age: 25\nEnter your name: Name: , Age: 25\n\n(No error — but the name input was SKIPPED!)",
+    "explanation": "This is the classic `cin` vs `getline()` trap.\n\n**What's happening:**\n1. `std::cin >> age` reads the number 25\n2. It leaves the newline character `\\n` in the buffer\n3. `std::getline()` reads that leftover newline as an empty string\n4. So `name` is empty, and the program skips the name input\n\n**The fix:**\n```cpp\nstd::cin >> age;\nstd::cin.ignore();  // ← This clears the buffer!\nstd::getline(std::cin, name);\n```\n\n**PlusPlus-chan says:**\n\"This is a rite of passage. Every C++ developer has been bitten by this. Now you know why.\""
   },
   "phase3": {
-    "prompt": "Write a program that:\n1. Creates variables x=15, y=4\n2. Prints: x + y = 19, x - y = 11, x * y = 60, x / y = 3, x % y = 3\n3. Uses ternary to print which is bigger: \"15 is bigger\" or \"4 is bigger\"",
+    "prompt": "Write a C++ program that:\n\n1. Asks the player \"Enter your class (Warrior/Mage/Rogue): \" and stores it in a `std::string`\n2. Asks the player \"Enter your starting level: \" and stores it in an `int`\n3. Prints a character summary:\n```\n=== Character Created ===\nClass: [class]\nStarting Level: [level]\n```\n\nRequirements:\n- Use `std::cin` for the level (int)\n- Use `std::getline()` for the class (string with spaces allowed)\n- Handle the buffer issue correctly with `std::cin.ignore()`",
     "validationPattern": {
-      "required": [
-        "%",
-        "/",
-        "?",
-        "System.out.println"
-      ],
-      "forbidden": [],
-      "fullRegex": "int\\s+\\w+\\s*=\\s*15\\s*;[\\s\\S]*int\\s+\\w+\\s*=\\s*4\\s*;[\\s\\S]*\\+\\s*\\w+\\s*[\\s\\S]*\\-\\s*\\w+[\\s\\S]*\\*\\s*\\w+[\\s\\S]*\\/\\s*\\w+[\\s\\S]*%\\s*\\w+[\\s\\S]*\\?.*:.*"
+      "required": ["std::cin", "std::getline", "std::cin.ignore", "int", "std::string"],
+      "forbidden": ["using namespace"],
+      "fullRegex": "std::cin\\s*>>\\s*\\w+\\s*;[\\s\\S]*std::cin\\.ignore\\s*\\([\\s\\S]*\\)[\\s\\S]*std::getline\\s*\\(\\s*std::cin\\s*,\\s*\\w+\\s*\\)"
     },
     "dialogueHints": [
-      "Use the ternary operator: condition ? value1 : value2",
-      "Integer division 15/4 gives 3 (no decimal)",
-      "Use String concatenation to build your output messages."
+      "Read the level with `std::cin >> level`",
+      "Call `std::cin.ignore();` before `getline()`",
+      "Read the class with `std::getline(std::cin, characterClass)`",
+      "Print both values"
     ],
-    "solution": "public class OperatorsPractice {\n    public static void main(String[] args) {\n        int x = 15, y = 4;\n        System.out.println(\"x + y = \" + (x + y));\n        System.out.println(\"x - y = \" + (x - y));\n        System.out.println(\"x * y = \" + (x * y));\n        System.out.println(\"x / y = \" + (x / y));\n        System.out.println(\"x % y = \" + (x % y));\n        System.out.println((x > y) ? \"15 is bigger\" : \"4 is bigger\");\n    }\n}",
-    "openingDialogue": "Time to crunch some numbers! Show me what you've got~ 🧮"
+    "solution": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string characterClass;\n    int level;\n    \n    std::cout << \"Enter your class (Warrior/Mage/Rogue): \";\n    std::getline(std::cin, characterClass);\n    \n    std::cout << \"Enter your starting level: \";\n    std::cin >> level;\n    \n    std::cout << \"\\n=== Character Created ===\" << std::endl;\n    std::cout << \"Class: \" << characterClass << std::endl;\n    std::cout << \"Starting Level: \" << level << std::endl;\n    \n    return 0;\n}",
+    "openingDialogue": "Let the player build their character. Make it real. 🎭"
   },
   "xpReward": 10
 }

@@ -51,11 +51,12 @@
 }
 
 /* ---- Token Colors ---- */
-.token-keyword    { color: #79b8ff; font-weight: 600; }   /* blue */
-.token-type       { color: #9ecbff; }                      /* light blue */
-.token-string     { color: #85e89d; }                      /* green */
-.token-comment    { color: #6a737d; font-style: italic; }  /* gray */
-.token-number     { color: #ffab70; }                      /* orange */
-.token-method     { color: var(--color-pink-light); }      /* pink */
-.token-annotation { color: var(--color-purple-light); }    /* purple */
-.token-class-name { color: #f8e3a1; }                      /* yellow */
+.token-keyword      { color: #79b8ff; font-weight: 600; }  /* blue */
+.token-type         { color: #9ecbff; }                    /* light blue */
+.token-string       { color: #85e89d; }                    /* green */
+.token-comment      { color: #6a737d; font-style: italic; }/* gray */
+.token-number       { color: #ffab70; }                    /* orange */
+.token-method       { color: var(--color-pink-light); }    /* pink */
+.token-class-name   { color: #f8e3a1; }                    /* yellow */
+.token-preprocessor { color: #c792ea; font-weight: 600; }  /* purple — #include, #define etc. */
+.token-operator     { color: #f97583; }                    /* red — ::, ->, <<, >>, etc. */

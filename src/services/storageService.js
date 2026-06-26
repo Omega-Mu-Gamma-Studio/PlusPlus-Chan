@@ -40,9 +40,9 @@ const localAdapter = {
   },
 
   clear: () => {
-    // Only clear javachan-prefixed keys
+    // Only clear pluspluschan-prefixed keys
     Object.keys(localStorage)
-      .filter(k => k.startsWith('javachan-'))
+      .filter(k => k.startsWith('pluspluschan-'))
       .forEach(k => localStorage.removeItem(k));
   },
 };
@@ -75,12 +75,12 @@ const adapter = USE_DATABASE ? apiAdapter : localAdapter;
 // ---- Public API ----
 export const storageService = {
   // User settings (theme, sound on/off etc.)
-  getSettings: () => adapter.get('javachan-settings') || {},
-  saveSettings: (settings) => adapter.set('javachan-settings', settings),
+  getSettings: () => adapter.get('pluspluschan-settings') || {},
+  saveSettings: (settings) => adapter.set('pluspluschan-settings', settings),
 
   // Cached lesson data (optional optimization)
-  getCachedLesson: (lessonId) => adapter.get(`javachan-lesson-${lessonId}`),
-  cacheLesson: (lessonId, data) => adapter.set(`javachan-lesson-${lessonId}`, data),
+  getCachedLesson: (lessonId) => adapter.get(`pluspluschan-lesson-${lessonId}`),
+  cacheLesson: (lessonId, data) => adapter.set(`pluspluschan-lesson-${lessonId}`, data),
 
   // Generic escape hatch
   get: (key) => adapter.get(key),

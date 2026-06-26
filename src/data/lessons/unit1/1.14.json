@@ -1,35 +1,33 @@
 {
   "id": "1.14",
-  "title": "Intro to OOP — Classes & Objects",
+  "title": "Strings & string manipulation",
   "type": "coding",
   "phase1": {
-    "code": "// Student.java — the class (blueprint)\nclass Student {\n    String name;\n    int age;\n    double gpa;\n    \n    // Constructor\n    Student(String name, int age, double gpa) {\n        this.name = name;\n        this.age = age;\n        this.gpa = gpa;\n    }\n    \n    // Method\n    void displayInfo() {\n        System.out.println(\"Name: \" + name);\n        System.out.println(\"Age: \" + age);\n        System.out.println(\"GPA: \" + gpa);\n        System.out.println(\"---\");\n    }\n}\n\n// Main class\npublic class Main {\n    public static void main(String[] args) {\n        // Creating objects (instances)\n        Student alice = new Student(\"Alice\", 20, 3.8);\n        Student bob = new Student(\"Bob\", 22, 3.2);\n        \n        // Accessing fields\n        System.out.println(\"Alice's name: \" + alice.name);\n        \n        // Calling methods\n        alice.displayInfo();\n        bob.displayInfo();\n        \n        // this keyword\n        // Inside the constructor, this refers to the current object\n        // this.name = name; assigns the parameter to the field\n    }\n}",
-    "output": "Alice's name: Alice\nName: Alice\nAge: 20\nGPA: 3.8\n---\nName: Bob\nAge: 22\nGPA: 3.2\n---",
-    "explanation": "Object-Oriented Programming (OOP) is about modeling real-world things:\n\nClass: blueprint/template (e.g., Student)\n• Defines what properties (fields) and behaviors (methods) objects will have\n\nObject: instance of a class (e.g., alice, bob)\n• Actual thing with specific values\n\nFields: variables that hold data (name, age, gpa)\n\nMethods: functions that define behavior (displayInfo)\n\nConstructor: special method that creates objects\n• Called with 'new' keyword\n• Same name as class\n• No return type\n\nthis keyword: refers to the current object\n• Used to distinguish between field and parameter with same name\n\nKey OOP concept: Classes are reusable blueprints!"
+    "code": "#include <iostream>\n#include <string>\n\nint main() {\n    std::cout << \"=== String Manipulation ===\" << std::endl;\n    \n    // Creating strings\n    std::string playerName = \"Hero\";\n    std::string greeting = \"Welcome, \";\n    \n    // Concatenation\n    std::string message = greeting + playerName + \"!\";\n    std::cout << message << std::endl;\n    \n    // String length\n    std::string gameTitle = \"Dungeon Quest\";\n    std::cout << \"Title: '\" << gameTitle << \"' (\" << gameTitle.length() << \" characters)\" << std::endl;\n    \n    // Accessing characters\n    std::cout << \"First character: \" << gameTitle[0] << std::endl;\n    std::cout << \"Last character: \" << gameTitle[gameTitle.length() - 1] << std::endl;\n    \n    // Substring\n    std::string sub = gameTitle.substr(0, 7);  // \"Dungeon\"\n    std::cout << \"Substring (0-7): '\" << sub << \"'\" << std::endl;\n    \n    // Find\n    std::string sentence = \"The hero defeated the dragon.\";\n    size_t pos = sentence.find(\"dragon\");\n    if (pos != std::string::npos) {\n        std::cout << \"Found 'dragon' at position \" << pos << std::endl;\n    }\n    \n    // Replace\n    std::string story = \"The player opened the chest.\";\n    story.replace(story.find(\"player\"), 6, \"hero\");\n    std::cout << \"Replaced: \" << story << std::endl;\n    \n    // Uppercase/Lowercase (manual)\n    std::string power = \"FIREBALL\";\n    for (char& c : power) {\n        c = std::tolower(c);\n    }\n    std::cout << \"Lowercase: \" << power << std::endl;\n    \n    // Checking if empty\n    std::string empty = \"\";\n    if (empty.empty()) {\n        std::cout << \"String is empty!\" << std::endl;\n    }\n    \n    // Comparison\n    std::string str1 = \"Apple\";\n    std::string str2 = \"Banana\";\n    if (str1 < str2) {\n        std::cout << str1 << \" comes before \" << str2 << std::endl;\n    }\n    \n    return 0;\n}",
+    "output": "=== String Manipulation ===\nWelcome, Hero!\nTitle: 'Dungeon Quest' (13 characters)\nFirst character: D\nLast character: t\nSubstring (0-7): 'Dungeon'\nFound 'dragon' at position 20\nReplaced: The hero opened the chest.\nLowercase: fireball\nString is empty!\nApple comes before Banana",
+    "explanation": "🎮 **Strings are how games store text.**\n\n**Key string operations:**\n\n| Operation | Code |\n|-----------|------|\n| Length | `str.length()` |\n| Access character | `str[0]` |\n| Concatenation | `str1 + str2` |\n| Substring | `str.substr(start, length)` |\n| Find | `str.find(\"text\")` |\n| Replace | `str.replace(pos, length, \"new\")` |\n| Empty check | `str.empty()` |\n| Comparison | `str1 == str2`, `str1 < str2` |\n\n**Game uses:**\n- Player names\n- Dialogue\n- Item descriptions\n- Quest text\n- UI labels\n\n**PlusPlus-chan says:**\n\"Strings are everywhere in games. Java-chan has `String`. I have `std::string`. Same idea, slightly different syntax.\"\n\n**⚠️ Important:**\n- Include `#include <string>`\n- `std::string` is mutable (you can modify it)\n- `length()` returns a `size_t`\n- `find()` returns `std::string::npos` if not found",
+    "openingDialogue": "Strings: your game's words. Every story needs them. 📝"
   },
   "phase2": {
-    "brokenCode": "class Student {\n    String name;\n    int age;\n    double gpa;\n    \n    // Constructor missing return type\n    void Student(String name, int age, double gpa) {\n        this.name = name;\n        this.age = age;\n        this.gpa = gpa;\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Student alice = new Student(\"Alice\", 20, 3.8);\n    }\n}",
-    "errorMessage": "Main.java:16: error: constructor Student in class Student cannot be applied to given types;\n        Student alice = new Student(\"Alice\", 20, 3.8);\n                        ^\n  required: no arguments\n  found: String,int,double\n1 error",
-    "explanation": "void Student(...) is a METHOD, not a CONSTRUCTOR!\n\nConstructors:\n• Have NO return type (not even void)\n• Must have the SAME name as the class\n\nCorrect: Student(String name, int age, double gpa)\n\nMistake: void Student(String name, int age, double gpa) ← this is a method\n\nThe compiler can't find a constructor that takes parameters!"
+    "brokenCode": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string name = \"Hero\";\n    \n    // Forgetting to include <string> already done\n    // But using c-string functions on std::string incorrectly\n    std::cout << \"Name length: \" << strlen(name) << std::endl;  // ERROR!\n    \n    return 0;\n}",
+    "errorMessage": "main.cpp:8:34: error: no matching function for call to 'strlen(std::string&)'\n    8 |     std::cout << \"Name length: \" << strlen(name) << std::endl;\n      |                                  ^~~~~~\n1 error",
+    "explanation": "`strlen()` is for C-style strings (char arrays). `std::string` has its own `.length()` method.\n\n**The fix:**\n```cpp\nstd::cout << \"Name length: \" << name.length() << std::endl;\n```\n\n**PlusPlus-chan says:**\n\"This is a common C vs C++ mix-up. `std::string` is the C++ way. Use its methods, not C functions.\"\n\n**When to use what:**\n- `std::string` → `.length()`, `.substr()`, `.find()`\n- `char[]` → `strlen()`, `strcmp()`"
   },
   "phase3": {
-    "prompt": "Create a class called Book with:\n• Fields: title (String), author (String), pages (int)\n• Constructor that initializes all fields\n• Method: displayInfo() that prints all book info\n\nIn main, create 2 Book objects and call displayInfo() on both.",
+    "prompt": "Write a C++ program that:\n\n1. Creates a string `playerName = \"Hero\"`\n2. Creates a string `item = \"Sword\"`\n3. Concatenates them into: \"Hero found a Sword!\"\n4. Prints the length of the string\n5. Finds the position of \"Sword\" in the string\n6. Replaces \"Sword\" with \"Shield\"\n7. Prints the final string\n\nRequirements:\n- Use `std::string`\n- Use `.length()`, `.find()`, `.replace()`\n- Print results at each step",
     "validationPattern": {
-      "required": [
-        "class Book",
-        "new Book",
-        "displayInfo"
-      ],
-      "forbidden": [],
-      "fullRegex": "class\\s+Book\\s*\\{[\\s\\S]*Book\\s*\\([\\s\\S]*\\)\\s*\\{[\\s\\S]*\\}\\s*void\\s+displayInfo\\s*\\([\\s\\S]*\\)\\s*\\{[\\s\\S]*\\}\\s*\\}[\\s\\S]*new\\s+Book\\s*\\("
+      "required": ["std::string", ".length()", ".find()", ".replace()", "std::cout"],
+      "forbidden": ["using namespace"],
+      "fullRegex": "std::string\\s+\\w+\\s*=\\s*\"[^\"]*\"[\\s\\S]*\\.length\\s*\\([\\s\\S]*\\)[\\s\\S]*\\.find\\s*\\([\\s\\S]*\\)[\\s\\S]*\\.replace\\s*\\([\\s\\S]*\\)"
     },
     "dialogueHints": [
-      "Fields should be instance variables (not static)",
-      "Constructor takes parameters and uses this.field = parameter",
-      "displayInfo should print using System.out.println"
+      "Create string: `std::string message = playerName + \" found a \" + item + \"!\";`",
+      "Length: `message.length()`",
+      "Find: `message.find(\"Sword\")`",
+      "Replace: `message.replace(pos, 5, \"Shield\")`"
     ],
-    "solution": "class Book {\n    String title;\n    String author;\n    int pages;\n    \n    Book(String title, String author, int pages) {\n        this.title = title;\n        this.author = author;\n        this.pages = pages;\n    }\n    \n    void displayInfo() {\n        System.out.println(\"Title: \" + title);\n        System.out.println(\"Author: \" + author);\n        System.out.println(\"Pages: \" + pages);\n        System.out.println(\"---\");\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Book book1 = new Book(\"1984\", \"George Orwell\", 328);\n        Book book2 = new Book(\"Sapiens\", \"Yuval Noah Harari\", 512);\n        \n        book1.displayInfo();\n        book2.displayInfo();\n    }\n}",
-    "openingDialogue": "Time to create your first class! The blueprint of the future~ 🏗️"
+    "solution": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string playerName = \"Hero\";\n    std::string item = \"Sword\";\n    \n    std::string message = playerName + \" found a \" + item + \"!\";\n    std::cout << \"Message: \" << message << std::endl;\n    \n    std::cout << \"Length: \" << message.length() << std::endl;\n    \n    size_t pos = message.find(\"Sword\");\n    std::cout << \"'Sword' found at position: \" << pos << std::endl;\n    \n    message.replace(pos, 5, \"Shield\");\n    std::cout << \"Updated message: \" << message << std::endl;\n    \n    return 0;\n}",
+    "openingDialogue": "Strings tell your game's story. Master them. 📖"
   },
   "xpReward": 10
 }

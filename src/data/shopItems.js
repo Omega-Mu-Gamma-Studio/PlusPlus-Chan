@@ -3,14 +3,14 @@
  *
  * Defines every cosmetic the player can unlock by leveling up.
  * One item unlocks per level (see MAX_LEVEL in utils/xpCalculator.js),
- * alternating between a wallpaper and a Java-chan outfit.
+ * alternating between a wallpaper and a PlusPlus-Chan outfit.
  *
  * ── ART STATUS ───────────────────────────────────────────────────
  * Wallpapers: all placeholders (CSS gradients, `imageSrc: null`).
  *
  * Outfits: real sprite art lives under /public/sprites/uniforms/<name>/,
  * one PNG per expression (teaching/idle/oops/thinking/frustrated/excited),
- * referenced via `spriteOverrides` — shaped exactly like JavaChan.jsx's
+ * referenced via `spriteOverrides` — shaped exactly like pluspluschan.jsx's
  * SPRITE_MAP ({ idle: { src, blend }, ... }). Real-art outfits also set
  * `filter: 'none'` since the tint was only ever a stand-in.
  *
@@ -27,7 +27,7 @@
  *    pattern of the default sprites at /public/sprites/).
  * 2. Set that item's `spriteOverrides` to the same shape as the ✅
  *    entries above, and set `filter: 'none'`.
- * That's it — Shop.jsx and JavaChan.jsx both already read
+ * That's it — Shop.jsx and pluspluschan.jsx both already read
  * `spriteOverrides` automatically, no other file needs to change.
  *
  * Wallpapers follow the same idea: set `imageSrc` to a path under
@@ -65,7 +65,7 @@ export const SHOP_ITEMS = [
       domain:       { src: '/sprites/excited.png',       blend: true  },
     },
     imageSrc: null,
-    description: "Java-chan's signature look. Always with you.",
+    description: "PlusPlus-Chan's signature look. Always with you.",
     isDefault: true, // marks this as the non-equippable base outfit
   },
   {
@@ -240,20 +240,20 @@ export const DEFAULT_OUTFIT = SHOP_ITEMS.find((i) => i.isDefault);
  *   gradient     – CSS gradient for the placeholder background
  *   accent       – glow / tint color
  *   imageSrc     – path to the downloadable image (null = placeholder)
- *   fileName     – suggested download filename (e.g. "javachan-sakura.png")
+ *   fileName     – suggested download filename (e.g. "pluspluschan-sakura.png")
  *   description  – flavor text
  *   requiredLevel – unlock gate (same system as themes / outfits)
  */
 export const DOWNLOADABLE_WALLPAPERS = [
   {
     id: 'dl-wallpaper-01',
-    name: 'Java-chan: Sakura Study',
+    name: 'PlusPlus-Chan: Sakura Study',
     emoji: '🌸',
     gradient: 'linear-gradient(160deg, #2a1a2e 0%, #4a1a3e 60%, #1a0f1a 100%)',
     accent: '#ffaad4',
     imageSrc: '/wallpapers/sakura-study.png',         // swap in e.g. '/wallpapers/sakura-study.png' when art is ready
-    fileName: 'javachan-sakura-study.png',
-    description: 'Java-chan under a cherry blossom tree, textbook in hand.',
+    fileName: 'pluspluschan-sakura-study.png',
+    description: 'PlusPlus-Chan under a cherry blossom tree, textbook in hand.',
     requiredLevel: 3,
   },
   {
@@ -262,8 +262,8 @@ export const DOWNLOADABLE_WALLPAPERS = [
     emoji: '🌃',
     gradient: 'linear-gradient(160deg, #0a0a1f 0%, #0d1b2a 55%, #1a2e4a 100%)',
     accent: '#6eb4ff',
-    imageSrc: '/wallpapers/javachan-neon-night.png',
-    fileName: 'javachan-neon-night.png',
+    imageSrc: '/wallpapers/pluspluschan-neon-night.png',
+    fileName: 'pluspluschan-neon-night.png',
     description: 'Late-night session vibes — city glow, code scrolling.',
     requiredLevel: 5,
   },
@@ -273,8 +273,8 @@ export const DOWNLOADABLE_WALLPAPERS = [
     emoji: '🌌',
     gradient: 'linear-gradient(160deg, #0a0518 0%, #1a0f3e 55%, #2e1a4a 100%)',
     accent: '#b46eff',
-    imageSrc: '/wallpapers/javachan-galaxy-stack.png',
-    fileName: 'javachan-galaxy-stack.png',
+    imageSrc: '/wallpapers/pluspluschan-galaxy-stack.png',
+    fileName: 'pluspluschan-galaxy-stack.png',
     description: 'Among the stars, someone is still Stack Overflowing.',
     requiredLevel: 7,
   },
@@ -284,8 +284,8 @@ export const DOWNLOADABLE_WALLPAPERS = [
     emoji: '🌇',
     gradient: 'linear-gradient(160deg, #2e1a0a 0%, #4a2e1a 55%, #1a0f0a 100%)',
     accent: '#ffcc6e',
-    imageSrc: '/wallpapers/javachan-golden-hour.png',
-    fileName: 'javachan-golden-hour.png',
+    imageSrc: '/wallpapers/pluspluschan-golden-hour.png',
+    fileName: 'pluspluschan-golden-hour.png',
     description: 'The build passed at sunset. A perfect moment.',
     requiredLevel: 9,
   },

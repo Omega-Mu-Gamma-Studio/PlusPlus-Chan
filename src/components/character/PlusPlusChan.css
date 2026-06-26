@@ -1,13 +1,13 @@
 /* ══════════════════════════════════════════
-   JAVA-CHAN CHARACTER — WIDGET & DOMAIN
+   PlusPlus-Chan CHARACTER — WIDGET & DOMAIN
    ══════════════════════════════════════════ */
 
 /* ── Widget container ── */
-.javachan-widget {
+.pluspluschan-widget {
   position: fixed;
   bottom: calc(var(--bottombar-height) + 8px);
   right: 8px;
-  width: var(--javachan-width);        /* 180px from globals */
+  width: var(--pluspluschan-width);        /* 180px from globals */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +17,7 @@
 }
 
 /* ── Sprite wrapper (handles bob animation) ── */
-.javachan-sprite-wrap {
+.pluspluschan-sprite-wrap {
   width: 180px;
   height: 220px;
   display: flex;
@@ -27,7 +27,7 @@
 }
 
 /* ── Actual sprite image ── */
-.javachan-sprite-img {
+.pluspluschan-sprite-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
