@@ -313,44 +313,49 @@ export const DOWNLOADABLE_WALLPAPERS = [
     requiredLevel: 9,
   },
 
-  // ─── Coming Soon ─────────────────────────────────────────────────────────────
-
   {
-    id: 'dl-wallpaper-cherry-blossom',
+    id: 'dl-wallpaper-05',
     name: 'Cherry Blossom Courtyard',
     emoji: '🌸',
     gradient: 'linear-gradient(160deg, #2e1a2a 0%, #3d1a35 55%, #1a0f1a 100%)',
     accent: '#ffb7d5',
-    imageSrc: null,
-    fileName: null,
+    imageSrc: '/wallpapers/pluspluschan-sakura.png',
+    fileName: 'pluspluschan-cherry-blossom.png',
     description: 'Petals falling. Effective Modern C++ open on her lap. A perfect afternoon.',
     requiredLevel: 3,
-    comingSoon: true,
+    comingSoon: false,
   },
-  {
+
+ {
     id: 'dl-wallpaper-mountain-summit',
     name: 'Mountain Summit',
     emoji: '🏔️',
     gradient: 'linear-gradient(160deg, #0f0c00 0%, #2a2000 55%, #1a1500 100%)',
     accent: '#ffcc6e',
-    imageSrc: null,
-    fileName: null,
+    imageSrc: '/wallpapers/pluspluschan-mountain-summit.png',
+    fileName: 'pluspluschan-mountain-summit.png',
     description: 'She made it to the top. The flag says int main(). So did you.',
     requiredLevel: 5,
-    comingSoon: true,
+    comingSoon: false,
   },
-  {
+
+    {
     id: 'dl-wallpaper-autumn-library',
     name: 'Autumn Library',
     emoji: '📚',
     gradient: 'linear-gradient(160deg, #1a0f00 0%, #2e1a00 55%, #1a1000 100%)',
     accent: '#ffaa55',
-    imageSrc: null,
-    fileName: null,
+    imageSrc: '/wallpapers/pluspluschan-autumn-library.png',
+    fileName: 'pluspluschan-autumn-library.png',
     description: 'Amber lamplight. C++ textbooks. Leaves outside the window. The perfect session.',
     requiredLevel: 5,
-    comingSoon: true,
+    comingSoon: false,
   },
+  // ─── Coming Soon ─────────────────────────────────────────────────────────────
+
+
+ 
+
   {
     id: 'dl-wallpaper-rooftop-garden',
     name: 'Rooftop Garden',
