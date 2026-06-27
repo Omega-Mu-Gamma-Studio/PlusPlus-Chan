@@ -149,7 +149,7 @@ The cosmetics system is built to grow. If the project gains traction, here's wha
 | Kunoichi 🥷 | Silent code. No warnings. No errors. Kunai shaped like a semicolon | Because C++ programmers already think they're doing something dangerous |
 | Idol ✨ | Sparkly, chaotic, made for the Domain Expansion moment | She performs the celebration sequence — might as well dress for it |
 | Professor 🥼 | Lab coat, round glasses, clipboard. She means business | Perfect energy for Unit 3 and 5 where she's truly bearing down |
-| Cyber Glitch 👾 | Holographic, partially corrupted, undefined behaviour incarnate | Secret unlock or prestige reward — details TBD |
+| Out of Scope - Swimsuit 👾 | Out of scope. Out of office. Out of reach. | Secret unlock or prestige reward — details TBD |
 
 ### Downloadable Wallpapers
 

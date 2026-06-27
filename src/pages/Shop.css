@@ -241,3 +241,44 @@
   z-index: 60;
   pointer-events: none;
 }
+/* ---- Coming soon card state ---- */
+.shop-card--coming-soon {
+  opacity: 0.7;
+}
+
+.shop-card--coming-soon .shop-card-thumb {
+  filter: saturate(0.4);
+}
+
+.shop-card-outfit-preview--silhouette {
+  filter: brightness(0) opacity(0.35) !important;
+}
+
+.shop-card-coming-soon-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: rgba(10, 8, 12, 0.45);
+  backdrop-filter: blur(1px);
+}
+
+.shop-card-coming-soon-icon {
+  font-size: 1.4rem;
+}
+
+.shop-card-coming-soon-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(10, 8, 12, 0.55);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  backdrop-filter: blur(2px);
+}
