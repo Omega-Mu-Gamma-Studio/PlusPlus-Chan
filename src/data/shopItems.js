@@ -351,22 +351,18 @@ export const DOWNLOADABLE_WALLPAPERS = [
     requiredLevel: 5,
     comingSoon: false,
   },
-  // ─── Coming Soon ─────────────────────────────────────────────────────────────
-
-
  
-
   {
     id: 'dl-wallpaper-rooftop-garden',
     name: 'Rooftop Garden',
     emoji: '🌿',
     gradient: 'linear-gradient(160deg, #001a0a 0%, #002e12 55%, #001a08 100%)',
     accent: '#7fff9b',
-    imageSrc: null,
-    fileName: null,
+    imageSrc: '/wallpapers/pluspluschan-rooftop-garden.png',
+    fileName: 'pluspluschan-rooftop-garden.png',
     description: "City skyline. Surrounded by plants. The sign reads // TODO: touch grass.",
     requiredLevel: 7,
-    comingSoon: true,
+    comingSoon: false,
   },
   {
     id: 'dl-wallpaper-neon-arcade',
@@ -374,11 +370,11 @@ export const DOWNLOADABLE_WALLPAPERS = [
     emoji: '🕹️',
     gradient: 'linear-gradient(160deg, #1a0010 0%, #2e0020 55%, #1a000f 100%)',
     accent: '#ff69b4',
-    imageSrc: null,
-    fileName: null,
+    imageSrc: '/wallpapers/pluspluschan-neon-arcade.png',
+    fileName: 'pluspluschan-neon-arcade.png',
     description: 'Hot pink. Neon yellow. One of the cabinets is running the RPG from the curriculum.',
     requiredLevel: 7,
-    comingSoon: true,
+    comingSoon: false,
   },
   {
     id: 'dl-wallpaper-shrine-steps',
@@ -386,11 +382,11 @@ export const DOWNLOADABLE_WALLPAPERS = [
     emoji: '🏮',
     gradient: 'linear-gradient(160deg, #1a0f0a 0%, #2a1a10 55%, #1a0f08 100%)',
     accent: '#ffccaa',
-    imageSrc: null,
-    fileName: null,
+    imageSrc: '/wallpapers/pluspluschan-shrine-steps.png',
+    fileName: 'pluspluschan-shrine-steps.png',
     description: 'Stone steps. Dawn lanterns. Morning mist. The most peaceful wallpaper in the set.',
     requiredLevel: 9,
-    comingSoon: true,
+    comingSoon: false,
   },
 ];
 
