@@ -303,7 +303,7 @@ const Shop = () => {
       <div className="shop-header">
         <button className="btn btn-ghost" onClick={() => navigate('/')}>← Home</button>
         <div>
-          <h1 className="shop-title" onClick={handleDevClick} style={{ cursor: 'default', userSelect: 'none' }}>
+          <h1 className="shop-title">
             Closet &amp; Decor
           </h1>
           <p className="shop-subtitle">
@@ -314,7 +314,13 @@ const Shop = () => {
 
       <div className="shop-level-card">
         <div className="shop-level-row">
-          <span className="shop-level-badge">Lv.{level}</span>
+          <span
+            className="shop-level-badge"
+            onClick={handleDevClick}
+            style={{ cursor: 'default', userSelect: 'none' }}
+          >
+            Lv.{level}
+          </span>
           <ProgressBar
             value={levelProgress}
             label={level >= 10 ? 'Max level — everything unlocked' : `${xpToNextLevel} XP to level ${level + 1}`}
