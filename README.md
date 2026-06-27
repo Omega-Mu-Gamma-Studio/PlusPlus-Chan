@@ -81,7 +81,7 @@ All five units are complete, published, and available from day one.
 
 - **XP system** — earn XP on lesson completion; bonus XP for first-attempt success and hint-free runs
 - **10 levels** — clear thresholds (100 XP per level) with a persistent progress bar
-- **Level-gated cosmetics** — one new reward unlocks per level, alternating wallpapers and outfits
+- **Level-gated cosmetics** — one new reward unlocks per level, alternating themes and outfits
 - **localStorage persistence** — no account needed, progress is saved in the browser
 
 ### 🎨 The Shop
@@ -92,26 +92,31 @@ The shop has two sections — cosmetics that change the app itself, and download
 
 | Level | Item | Style |
 | --- | --- | --- |
-| 1 | Terminal Black 🖤 | The classic void |
-| 3 | Sakura Compile 🌸 | Cherry blossom dark |
-| 5 | Neon Server Room 🌃 | Late-night blue |
-| 7 | Galaxy Stack Overflow 🌌 | Deep space purple |
-| 9 | Golden Hour Bytecode 🌇 | Amber sunset |
+| 1 | Midnight Violet 🌌 | Cold, precise, and deeply purple — the default |
+| 3 | Steel & Silver ⚙️ | Compiled, metallic, precise. The machine aesthetic |
+| 5 | Indigo & Gold 👑 | Dark fantasy royalty. Deep indigo, gilded accents |
+| 7 | Crimson Debug 🔴 | Blood on the compiler floor. For the fearless |
+| 9 | Terminal Green 💻 | Classic hacker terminal. Green on black, forever |
 
 **Character Outfits** (equippable; all with full 6-expression sprite art):
 
 | Level | Outfit | Vibe |
 | --- | --- | --- |
-| 1 | Classic Hoodie 🖤 | Her signature look, always equipped |
-| 2 | Casual Hoodie 🧥 | Off the clock, still ready to compile |
-| 4 | School Uniform 🎀 | Sailor-collar edition |
-| 6 | Magical Girl Debugger 🪄 | Silver robe, glowing `*ptr` staff |
-| 8 | Streetwear Hacker 🕶️ | All black, green cuffs |
-| 10 | Legendary Kimono 👘 | For students who survived pointers |
+| 1 | Classic Hoodie 🧡 | Her signature look, always equipped |
+| 2 | Game Dev 🧥 | Game Dev Mode — ON |
+| 4 | Competitive Programmer 🎀 | Winner Winner Chicken? Wait.. Wrong Game! |
+| 6 | Memory Witch 🪄 | The Pointers Bend to her Will. Allegedly |
+| 8 | Low Level Operative 🕶️ | Cold logic. Precise execution. Every register matters |
+| 10 | Undefined Behaviour Queen 👘 | You survived Undefined Behaviour. Wear the Crown |
 
 **Downloadable Wallpapers** (phone/desktop art, save to your device):
 
-- Sakura Study (Level 3) · Neon Night Compile (Level 5) · Galaxy Stack (Level 7) · Golden Hour Debug (Level 9)
+| Level | Wallpaper | Vibe |
+| --- | --- | --- |
+| 3 | Compile Time 🌆 | The longest wait ends with two words |
+| 5 | The Stack 🏰 | Every function leaves a footprint |
+| 7 | Rainy Commute 🌧️ | Even after work... the code follows |
+| 9 | Vacation Build 🌅 | Even the longest debug sessions end with a sunset |
 
 ### ✨ Character & Expressions
 
@@ -119,16 +124,47 @@ PlusPlus-chan has 6 distinct expressions that fire contextually throughout lesso
 
 | State | Trigger |
 | --- | --- |
-| `teaching` | Phase 1 — explaining working code |
+| `idle` | Phase 1 — explaining working code |
 | `thinking` | Hint mode; waiting for input |
-| `excited` | Correct answer |
-| `oops` | Wrong answer (first few times) |
-| `frustrated` | Repeated wrong attempts |
-| `idle-sleeping` | Idle between interactions |
+| `surprised` | Correct answer |
+| `happy` | Phase transitions and encouragement |
+| `sad` | Wrong answer (first few times) |
+| `idle-sleep` | Idle between interactions |
 
 Each equipped outfit has its own full set of 6 expression sprites — swapping outfits changes PlusPlus-chan's entire look, not just a filter.
 
 **Domain Expansion** — a fullscreen celebration effect fires on milestone level-ups, complete with confetti.
+
+---
+
+## Coming Soon 🔒
+
+The cosmetics system is built to grow. If the project gains traction, here's what's planned for future drops. These will appear as locked preview cards in the shop — you'll see them coming before they arrive.
+
+### Outfits
+
+| Outfit | Vibe | Notes |
+| --- | --- | --- |
+| Debug Mode 😴 | 14-hour coding session. Oversized shirt, messy hair, energy drink in hand | Early unlock — every programmer has been this person |
+| Kunoichi 🥷 | Silent code. No warnings. No errors. Kunai shaped like a semicolon | Because C++ programmers already think they're doing something dangerous |
+| Idol ✨ | Sparkly, chaotic, made for the Domain Expansion moment | She performs the celebration sequence — might as well dress for it |
+| Professor 🥼 | Lab coat, round glasses, clipboard. She means business | Perfect energy for Unit 3 and 5 where she's truly bearing down |
+| Cyber Glitch 👾 | Holographic, partially corrupted, undefined behaviour incarnate | Secret unlock or prestige reward — details TBD |
+
+### Downloadable Wallpapers
+
+The current wallpaper set leans heavily dark and purple. Future drops will deliberately break that mould — same character, same signature colours, completely different worlds.
+
+| Wallpaper | Location | Colour Palette | Mood |
+| --- | --- | --- | --- |
+| Cherry Blossom Courtyard 🌸 | Daytime Japan, sakura tree, petals falling | Soft pink, warm white, spring daylight | Her dark look against bright pink — the contrast is the point |
+| Mountain Summit 🏔️ | Sunrise peak, sea of clouds below, wind in her hair | Gold, amber, pale blue sky | Cinematic. She made it to the top. So did you |
+| Autumn Library 📚 | Cozy university library, amber lamplight, leaves outside | Oranges, warm brown, cream | The study-session wallpaper. Warm everything |
+| Rooftop Garden 🌿 | Urban rooftop, city skyline, surrounded by plants | Bright green, sky blue, white sunlight | She's outside for once. The sign next to her says `// TODO: touch grass` |
+| Neon Arcade 🕹️ | Old-school arcade, hot pink and yellow lighting | Hot pink, neon yellow, dark floor | Completely different neon palette from the rainy commute. One of the cabinets is running the RPG from the curriculum |
+| Shrine Steps 🏮 | Japanese shrine at dawn, stone steps, lanterns, morning mist | Pale pink, soft orange, mist white, stone grey | The most serene wallpaper in the set. Earned late |
+
+> The design rule for every future wallpaper: **she stays the same, the world changes.** Dark character + vivid or warm environment = the contrast does the work.
 
 ---
 
@@ -187,32 +223,36 @@ This repo is Vercel-ready with no configuration needed. Connect the repo in the 
 ```
 PlusPlus-Chan/
 ├── public/
-│   ├── sprites/                      # Character expressions (base outfit)
+│   ├── sprites/                      # Character expressions (Classic Hoodie — base outfit)
 │   │   ├── teaching.png
 │   │   ├── excited.png
 │   │   ├── frustrated.png
 │   │   ├── thinking.png
 │   │   ├── oops.png
-│   │   ├── idle-sleeping.png
-│   │   └── uniforms/                 # Outfit-specific sprite sets
-│   │       ├── casual/               # Casual Hoodie (6 expressions)
-│   │       ├── sailor/               # School Uniform (6 expressions)
-│   │       ├── mage/                 # Magical Girl Debugger (6 expressions)
-│   │       ├── hacker/               # Streetwear Hacker (6 expressions)
-│   │       └── kimono/               # Legendary Kimono (6 expressions)
+│   │   ├── idle.png
+│   │   └── uniforms/                 # Outfit-specific sprite sets (6 expressions each)
+│   │       ├── game-dev/             # Game Dev outfit
+│   │       ├── comp/                 # Competitive Programmer outfit
+│   │       ├── mage/                 # Memory Witch outfit
+│   │       ├── military/             # Low Level Operative outfit
+│   │       └── queen/                # Undefined Behaviour Queen outfit
 │   └── wallpapers/                   # Downloadable device wallpapers
+│       ├── pluspluschan-compile-time.png
+│       ├── pluspluschan-the-stack.png
+│       ├── pluspluschan-rainy.png
+│       └── pluspluschan-vacation-build.png
 │
 ├── src/
 │   ├── components/
 │   │   ├── character/PlusPlusChan.jsx  # Sprite renderer; reads spriteOverrides from equipped outfit
-│   │   ├── layout/AppLayout.jsx        # Root layout; applies wallpaper + theme
+│   │   ├── layout/AppLayout.jsx        # Root layout; applies theme + background
 │   │   ├── lesson/                     # LessonCanvas, CodeBlock, PhaseIndicator
 │   │   └── ui/                         # Sidebar, BottomBar, XPDisplay, ProgressBar
 │   │
 │   ├── data/
 │   │   ├── lessons/                  # 75 JSON lesson files (unit1–5, lessons 1–15)
 │   │   ├── units/                    # 5 unit JSON files (id, title, lesson list)
-│   │   └── shopItems.js              # All cosmetic definitions (outfits, wallpapers, downloadables)
+│   │   └── shopItems.js              # All cosmetic definitions (outfits, themes, downloadables)
 │   │
 │   ├── hooks/
 │   │   ├── useLesson.js              # Lesson phase state machine
@@ -304,6 +344,13 @@ In the Shop page, **triple-click the Shop title** to toggle the dev cheat:
 - Full cosmetics system (5 outfits, 5 themes, 4 downloadable wallpapers)
 - XP/leveling, shop, expressions, domain expansion
 - localStorage persistence, no account required
+
+### Phase 1.5 (Cosmetics Expansion — if project gains traction) 🔒
+
+- 5 new outfits (Debug Mode, Kunoichi, Idol, Professor, Cyber Glitch)
+- 6 new downloadable wallpapers with intentionally diverse locations and colour palettes
+- Ghost/teaser cards in the shop for upcoming content
+- Possible prestige unlock for completing all 75 lessons
 
 ### Phase 2 (Planned)
 
