@@ -9,6 +9,7 @@
 [![Zustand](https://img.shields.io/badge/Zustand-5-orange)](https://zustand-demo.pmnd.rs/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-0055ff)](https://www.framer.com/motion/)
 [![MIT License](https://img.shields.io/badge/License-MIT-green)](https://github.com/Omega-Mu-Gamma-Studio/PlusPlus-Chan/blob/main/LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-plusplus--chan.vercel.app-7c6fff?logo=vercel&logoColor=white)](https://plusplus-chan.vercel.app)
 
 Built by [Omega Mu Gamma Studio](https://github.com/Omega-Mu-Gamma-Studio) · the team behind [SeeDS](https://see-ds.vercel.app), [KMapX](https://kmapx.vercel.app), [EG Suite](https://eg-suite.vercel.app), [GateLab](https://gatelab.vercel.app), [Java-chan](https://java-chan.vercel.app), [ArchVisor](https://arch-visor.vercel.app), and [ThermOS](https://thermos-omg.vercel.app).
 
@@ -21,6 +22,8 @@ PlusPlus-chan is a browser-based C++ learning app where an anime mascot characte
 The twist? Every single concept is taught through the lens of **building a game**. Variables aren't abstract — they're your player's health. Pointers aren't scary — they're your enemy's memory address. By the end of all 75 lessons, you've built a complete text-based RPG in C++, piece by piece.
 
 No abstract theory walls. No cold segfaults. No account required. Just C++ and a very intense tutor.
+
+🔗 **[Try it live → plusplus-chan.vercel.app](https://plusplus-chan.vercel.app)**
 
 ---
 
@@ -149,7 +152,7 @@ The cosmetics system is built to grow. If the project gains traction, here's wha
 | Kunoichi 🥷 | Silent code. No warnings. No errors. Kunai shaped like a semicolon | Because C++ programmers already think they're doing something dangerous |
 | Idol ✨ | Sparkly, chaotic, made for the Domain Expansion moment | She performs the celebration sequence — might as well dress for it |
 | Professor 🥼 | Lab coat, round glasses, clipboard. She means business | Perfect energy for Unit 3 and 5 where she's truly bearing down |
-| Out of Scope - Swimsuit 👾 | Out of scope. Out of office. Out of reach. | Secret unlock or prestige reward — details TBD |
+| Out of Scope 🏖️ | Out of scope. Out of office. Out of reach. | She closed the laptop. She earned this |
 
 ### Downloadable Wallpapers
 
@@ -347,7 +350,7 @@ In the Shop page, **triple-click the Shop title** to toggle the dev cheat:
 
 ### Phase 1.5 (Cosmetics Expansion — if project gains traction) 🔒
 
-- 5 new outfits (Debug Mode, Kunoichi, Idol, Professor, Cyber Glitch)
+- 5 new outfits (Debug Mode, Kunoichi, Idol, Professor, Out of Scope)
 - 6 new downloadable wallpapers with intentionally diverse locations and colour palettes
 - Ghost/teaser cards in the shop for upcoming content
 - Possible prestige unlock for completing all 75 lessons
