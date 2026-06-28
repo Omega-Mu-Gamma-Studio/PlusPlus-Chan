@@ -206,20 +206,6 @@ export const SHOP_ITEMS = [
   // ─── Coming Soon ─────────────────────────────────────────────────────────────
 
   {
-    id: 'outfit-off-the-clock',
-    type: 'outfit',
-    name: 'Off the Clock',
-    requiredLevel: 3,
-    emoji: '🏖️',
-    accent: '#ffcc6e',
-    filter: 'none',
-    spriteOverrides: null,
-    imageSrc: null,
-    description: "She closed the laptop. She's not answering PRs. Do not ping her.",
-    comingSoon: true,
-  },
-
-  {
     id: 'outfit-idol',
     type: 'outfit',
     name: 'Idol',
