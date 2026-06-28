@@ -202,7 +202,27 @@ export const SHOP_ITEMS = [
     comingSoon: false,
   },
 
-  
+    {
+    id: 'outfit-kunoichi',
+    type: 'outfit',
+    name: 'Kunoichi',
+    requiredLevel: 7,
+    emoji: '🥷',
+    accent: '#4fffb0',
+    filter: 'none',
+    spriteOverrides: {
+      idle:         { src: '/sprites/uniforms/ninja/teaching.png',   blend: false },
+      'idle-sleep': { src: '/sprites/uniforms/ninja/idle.png',       blend: false },
+      happy:        { src: '/sprites/uniforms/ninja/oops.png',       blend: false },
+      thinking:     { src: '/sprites/uniforms/ninja/thinking.png',   blend: false },
+      sad:          { src: '/sprites/uniforms/ninja/frustrated.png', blend: false },
+      surprised:    { src: '/sprites/uniforms/ninja/excited.png',    blend: false },
+      domain:       { src: '/sprites/uniforms/ninja/excited.png',    blend: false },
+    },
+    imageSrc: null,
+    description: 'Silent code. No warnings. No errors. The kunai is shaped like a semicolon.',
+    comingSoon: false,
+  },
   // ─── Coming Soon ─────────────────────────────────────────────────────────────
 
   {
@@ -231,19 +251,7 @@ export const SHOP_ITEMS = [
     description: 'Lab coat. Round glasses. Clipboard. She means it this time.',
     comingSoon: true,
   },
-  {
-    id: 'outfit-kunoichi',
-    type: 'outfit',
-    name: 'Kunoichi',
-    requiredLevel: 9,
-    emoji: '🥷',
-    accent: '#4fffb0',
-    filter: 'none',
-    spriteOverrides: null,
-    imageSrc: null,
-    description: 'Silent code. No warnings. No errors. The kunai is shaped like a semicolon.',
-    comingSoon: true,
-  },
+
   {
     id: 'outfit-swimsuit',
     type: 'outfit',
