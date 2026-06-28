@@ -180,13 +180,13 @@ export const SHOP_ITEMS = [
     imageSrc: null,
     description: 'You survived Undefined Behaviour. Wear the Crown.',
   },
-  {
-    id: 'outfit-off-the-clock',
+    {
+    id: 'outfit-debug-mode',
     type: 'outfit',
-    name: 'Off the Clock',
-    requiredLevel: 3,
-    emoji: '🏖️',
-    accent: '#ffcc6e',
+    name: 'Debug Mode',
+    requiredLevel: 5,
+    emoji: '😴',
+    accent: '#a0c4ff',
     filter: 'none',
     spriteOverrides: {
       idle:         { src: '/sprites/uniforms/casual/teaching.png',   blend: false },
@@ -198,25 +198,27 @@ export const SHOP_ITEMS = [
       domain:       { src: '/sprites/uniforms/casual/excited.png',    blend: false },
     },
     imageSrc: null,
-    description: "She closed the laptop. She's not answering PRs. Do not ping her.",
+    description: '14 hours in. The energy drink is empty. The bug is still there.',
     comingSoon: false,
   },
+
+  
   // ─── Coming Soon ─────────────────────────────────────────────────────────────
 
-
   {
-    id: 'outfit-debug-mode',
+    id: 'outfit-off-the-clock',
     type: 'outfit',
-    name: 'Debug Mode',
-    requiredLevel: 5,
-    emoji: '😴',
-    accent: '#a0c4ff',
+    name: 'Off the Clock',
+    requiredLevel: 3,
+    emoji: '🏖️',
+    accent: '#ffcc6e',
     filter: 'none',
     spriteOverrides: null,
     imageSrc: null,
-    description: '14 hours in. The energy drink is empty. The bug is still there.',
+    description: "She closed the laptop. She's not answering PRs. Do not ping her.",
     comingSoon: true,
   },
+
   {
     id: 'outfit-idol',
     type: 'outfit',
