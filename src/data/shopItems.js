@@ -180,9 +180,6 @@ export const SHOP_ITEMS = [
     imageSrc: null,
     description: 'You survived Undefined Behaviour. Wear the Crown.',
   },
-
-  // ─── Coming Soon ─────────────────────────────────────────────────────────────
-
   {
     id: 'outfit-off-the-clock',
     type: 'outfit',
@@ -191,11 +188,22 @@ export const SHOP_ITEMS = [
     emoji: '🏖️',
     accent: '#ffcc6e',
     filter: 'none',
-    spriteOverrides: null,
+    spriteOverrides: {
+      idle:         { src: '/sprites/uniforms/casual/teaching.png',   blend: false },
+      'idle-sleep': { src: '/sprites/uniforms/casual/idle.png',       blend: false },
+      happy:        { src: '/sprites/uniforms/casual/oops.png',       blend: false },
+      thinking:     { src: '/sprites/uniforms/casual/thinking.png',   blend: false },
+      sad:          { src: '/sprites/uniforms/casual/frustrated.png', blend: false },
+      surprised:    { src: '/sprites/uniforms/casual/excited.png',    blend: false },
+      domain:       { src: '/sprites/uniforms/casual/excited.png',    blend: false },
+    },
     imageSrc: null,
     description: "She closed the laptop. She's not answering PRs. Do not ping her.",
-    comingSoon: true,
+    comingSoon: false,
   },
+  // ─── Coming Soon ─────────────────────────────────────────────────────────────
+
+
   {
     id: 'outfit-debug-mode',
     type: 'outfit',
