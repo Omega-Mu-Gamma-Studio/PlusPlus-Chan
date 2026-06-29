@@ -274,15 +274,23 @@ export const SHOP_ITEMS = [
   {
     id: 'outfit-swimsuit',
     type: 'outfit',
-    name: 'Out of Scope - Swimsuit',
+    name: 'Out of Scope',
     requiredLevel: 10,
     emoji: '👾',
     accent: '#ff4f7b',
     filter: 'none',
-    spriteOverrides: null,
+    spriteOverrides: {
+      idle:         { src: '/sprites/uniforms/bikini/teaching.png',   blend: false },
+      'idle-sleep': { src: '/sprites/uniforms/bikini/idle.png',       blend: false },
+      happy:        { src: '/sprites/uniforms/bikini/oops.png',       blend: false },
+      thinking:     { src: '/sprites/uniforms/bikini/thinking.png',   blend: false },
+      sad:          { src: '/sprites/uniforms/bikini/frustrated.png', blend: false },
+      surprised:    { src: '/sprites/uniforms/bikini/excited.png',    blend: false },
+      domain:       { src: '/sprites/uniforms/bikini/excited.png',    blend: false },
+    },
     imageSrc: null,
     description: 'Out of scope. Out of office. Out of reach.',
-    comingSoon: true,
+    comingSoon: false,
   },
 ];
 
