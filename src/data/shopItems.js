@@ -244,10 +244,8 @@ export const SHOP_ITEMS = [
     description: 'She already performs a Celebration. Might as well dress for it.',
     comingSoon: false,
   },
-  // ─── Coming Soon ─────────────────────────────────────────────────────────────
 
-
-  {
+    {
     id: 'outfit-professor',
     type: 'outfit',
     name: 'Professor',
@@ -255,11 +253,23 @@ export const SHOP_ITEMS = [
     emoji: '🥼',
     accent: '#e0e0e0',
     filter: 'none',
-    spriteOverrides: null,
+    spriteOverrides: {
+      idle:         { src: '/sprites/uniforms/prof/teaching.png',   blend: false },
+      'idle-sleep': { src: '/sprites/uniforms/prof/idle.png',       blend: false },
+      happy:        { src: '/sprites/uniforms/prof/oops.png',       blend: false },
+      thinking:     { src: '/sprites/uniforms/prof/thinking.png',   blend: false },
+      sad:          { src: '/sprites/uniforms/prof/frustrated.png', blend: false },
+      surprised:    { src: '/sprites/uniforms/prof/excited.png',    blend: false },
+      domain:       { src: '/sprites/uniforms/prof/excited.png',    blend: false },
+    },
     imageSrc: null,
     description: 'Lab coat. Round glasses. Clipboard. She means it this time.',
-    comingSoon: true,
+    comingSoon: false,
   },
+  // ─── Coming Soon ─────────────────────────────────────────────────────────────
+
+
+
 
   {
     id: 'outfit-swimsuit',
