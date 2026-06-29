@@ -1,9 +1,6 @@
 # ⚔️ PlusPlus-chan
-
 **An anime-guided C++ tutor built for aspiring game developers — learn C++ by building a game, concept by concept.**
-
 *Because nobody learned pointers from a cold segfault.*
-
 [![React](https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=white)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8-646cff?logo=vite&logoColor=white)](https://vite.dev/)
 [![Zustand](https://img.shields.io/badge/Zustand-5-orange)](https://zustand-demo.pmnd.rs/)
@@ -84,7 +81,7 @@ All five units are complete, published, and available from day one.
 
 - **XP system** — earn XP on lesson completion; bonus XP for first-attempt success and hint-free runs
 - **10 levels** — clear thresholds (100 XP per level) with a persistent progress bar
-- **Level-gated cosmetics** — one new reward unlocks per level, alternating themes and outfits
+- **Level-gated cosmetics** — new rewards unlock as you level up, alternating themes and outfits
 - **localStorage persistence** — no account needed, progress is saved in the browser
 
 ### 🎨 The Shop
@@ -108,17 +105,28 @@ The shop has two sections — cosmetics that change the app itself, and download
 | 1 | Classic Hoodie 🧡 | Her signature look, always equipped |
 | 2 | Game Dev 🧥 | Game Dev Mode — ON |
 | 4 | Competitive Programmer 🎀 | Winner Winner Chicken? Wait.. Wrong Game! |
+| 5 | Debug Mode 😴 | 14 hours in. The energy drink is empty. The bug is still there |
 | 6 | Memory Witch 🪄 | The Pointers Bend to her Will. Allegedly |
+| 7 | Kunoichi 🥷 | Silent code. No warnings. No errors. The kunai is shaped like a semicolon |
+| 7 | Idol ✨ | She already performs a Celebration. Might as well dress for it |
 | 8 | Low Level Operative 🕶️ | Cold logic. Precise execution. Every register matters |
+| 8 | Professor 🥼 | Lab coat. Round glasses. Clipboard. She means it this time |
 | 10 | Undefined Behaviour Queen 👘 | You survived Undefined Behaviour. Wear the Crown |
+| 10 | Out of Scope 👾 | Out of scope. Out of office. Out of reach |
 
 **Downloadable Wallpapers** (phone/desktop art, save to your device):
 
 | Level | Wallpaper | Vibe |
 | --- | --- | --- |
 | 3 | Compile Time 🌆 | The longest wait ends with two words |
+| 3 | Cherry Blossom Courtyard 🌸 | Petals falling. Effective Modern C++ open on her lap |
 | 5 | The Stack 🏰 | Every function leaves a footprint |
+| 5 | Mountain Summit 🏔️ | She made it to the top. The flag says `int main()`. So did you |
+| 5 | Autumn Library 📚 | Amber lamplight. C++ textbooks. Leaves outside the window |
 | 7 | Rainy Commute 🌧️ | Even after work... the code follows |
+| 7 | Rooftop Garden 🌿 | City skyline. The sign reads `// TODO: touch grass` |
+| 7 | Neon Arcade 🕹️ | Hot pink. Neon yellow. One of the cabinets is running the RPG from the curriculum |
+| 9 | Shrine Steps 🏮 | Stone steps. Dawn lanterns. Morning mist. The most peaceful one in the set |
 | 9 | Vacation Build 🌅 | Even the longest debug sessions end with a sunset |
 
 ### ✨ Character & Expressions
@@ -137,37 +145,6 @@ PlusPlus-chan has 6 distinct expressions that fire contextually throughout lesso
 Each equipped outfit has its own full set of 6 expression sprites — swapping outfits changes PlusPlus-chan's entire look, not just a filter.
 
 **Domain Expansion** — a fullscreen celebration effect fires on milestone level-ups, complete with confetti.
-
----
-
-## Coming Soon 🔒
-
-The cosmetics system is built to grow. If the project gains traction, here's what's planned for future drops. These will appear as locked preview cards in the shop — you'll see them coming before they arrive.
-
-### Outfits
-
-| Outfit | Vibe | Notes |
-| --- | --- | --- |
-| Debug Mode 😴 | 14-hour coding session. Oversized shirt, messy hair, energy drink in hand | Early unlock — every programmer has been this person |
-| Kunoichi 🥷 | Silent code. No warnings. No errors. Kunai shaped like a semicolon | Because C++ programmers already think they're doing something dangerous |
-| Idol ✨ | Sparkly, chaotic, made for the Domain Expansion moment | She performs the celebration sequence — might as well dress for it |
-| Professor 🥼 | Lab coat, round glasses, clipboard. She means business | Perfect energy for Unit 3 and 5 where she's truly bearing down |
-| Out of Scope 🏖️ | Out of scope. Out of office. Out of reach. | She closed the laptop. She earned this |
-
-### Downloadable Wallpapers
-
-The current wallpaper set leans heavily dark and purple. Future drops will deliberately break that mould — same character, same signature colours, completely different worlds.
-
-| Wallpaper | Location | Colour Palette | Mood |
-| --- | --- | --- | --- |
-| Cherry Blossom Courtyard 🌸 | Daytime Japan, sakura tree, petals falling | Soft pink, warm white, spring daylight | Her dark look against bright pink — the contrast is the point |
-| Mountain Summit 🏔️ | Sunrise peak, sea of clouds below, wind in her hair | Gold, amber, pale blue sky | Cinematic. She made it to the top. So did you |
-| Autumn Library 📚 | Cozy university library, amber lamplight, leaves outside | Oranges, warm brown, cream | The study-session wallpaper. Warm everything |
-| Rooftop Garden 🌿 | Urban rooftop, city skyline, surrounded by plants | Bright green, sky blue, white sunlight | She's outside for once. The sign next to her says `// TODO: touch grass` |
-| Neon Arcade 🕹️ | Old-school arcade, hot pink and yellow lighting | Hot pink, neon yellow, dark floor | Completely different neon palette from the rainy commute. One of the cabinets is running the RPG from the curriculum |
-| Shrine Steps 🏮 | Japanese shrine at dawn, stone steps, lanterns, morning mist | Pale pink, soft orange, mist white, stone grey | The most serene wallpaper in the set. Earned late |
-
-> The design rule for every future wallpaper: **she stays the same, the world changes.** Dark character + vivid or warm environment = the contrast does the work.
 
 ---
 
@@ -236,13 +213,24 @@ PlusPlus-Chan/
 │   │   └── uniforms/                 # Outfit-specific sprite sets (6 expressions each)
 │   │       ├── game-dev/             # Game Dev outfit
 │   │       ├── comp/                 # Competitive Programmer outfit
+│   │       ├── casual/               # Debug Mode outfit
 │   │       ├── mage/                 # Memory Witch outfit
+│   │       ├── ninja/                # Kunoichi outfit
+│   │       ├── idol/                 # Idol outfit
 │   │       ├── military/             # Low Level Operative outfit
-│   │       └── queen/                # Undefined Behaviour Queen outfit
-│   └── wallpapers/                   # Downloadable device wallpapers
+│   │       ├── prof/                 # Professor outfit
+│   │       ├── queen/                # Undefined Behaviour Queen outfit
+│   │       └── bikini/               # Out of Scope outfit
+│   └── wallpapers/                   # Downloadable device wallpapers (10 total)
 │       ├── pluspluschan-compile-time.png
+│       ├── pluspluschan-sakura.png
 │       ├── pluspluschan-the-stack.png
+│       ├── pluspluschan-mountain-summit.png
+│       ├── pluspluschan-autumn-library.png
 │       ├── pluspluschan-rainy.png
+│       ├── pluspluschan-rooftop-garden.png
+│       ├── pluspluschan-neon-arcade.png
+│       ├── pluspluschan-shrine-steps.png
 │       └── pluspluschan-vacation-build.png
 │
 ├── src/
@@ -344,16 +332,9 @@ In the Shop page, **triple-click the Shop title** to toggle the dev cheat:
 ### Phase 1 (Current) ✅
 
 - All 75 lessons authored and published
-- Full cosmetics system (5 outfits, 5 themes, 4 downloadable wallpapers)
+- Full cosmetics system (11 outfits, 5 themes, 10 downloadable wallpapers)
 - XP/leveling, shop, expressions, domain expansion
 - localStorage persistence, no account required
-
-### Phase 1.5 (Cosmetics Expansion — if project gains traction) 🔒
-
-- 5 new outfits (Debug Mode, Kunoichi, Idol, Professor, Out of Scope)
-- 6 new downloadable wallpapers with intentionally diverse locations and colour palettes
-- Ghost/teaser cards in the shop for upcoming content
-- Possible prestige unlock for completing all 75 lessons
 
 ### Phase 2 (Planned)
 
