@@ -356,8 +356,7 @@ In the Shop page, **triple-click the Shop title** to toggle the dev cheat:
 
 ## Part of Omega Mu Gamma Studio
 
-PlusPlus-chan is the sixth tool from Omega Mu Gamma Studio — a student-built suite of open-source engineering and CS education tools from St. Xavier's Catholic College of Engineering.
-
+PlusPlus-chan is the sixth tool from Omega Mu Gamma Studio — a student-built suite of open-source engineering and CS education tools.
 | Tool | What it does |
 | --- | --- |
 | [SeeDS](https://see-ds.vercel.app) | 3D data structure visualizer with drag-and-drop Playground mode |
