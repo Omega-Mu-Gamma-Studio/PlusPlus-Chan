@@ -223,9 +223,7 @@ export const SHOP_ITEMS = [
     description: 'Silent code. No warnings. No errors. The kunai is shaped like a semicolon.',
     comingSoon: false,
   },
-  // ─── Coming Soon ─────────────────────────────────────────────────────────────
-
-  {
+    {
     id: 'outfit-idol',
     type: 'outfit',
     name: 'Idol',
@@ -233,11 +231,22 @@ export const SHOP_ITEMS = [
     emoji: '✨',
     accent: '#ff85c2',
     filter: 'none',
-    spriteOverrides: null,
+    spriteOverrides: {
+      idle:         { src: '/sprites/uniforms/idol/teaching.png',   blend: false },
+      'idle-sleep': { src: '/sprites/uniforms/idol/idle.png',       blend: false },
+      happy:        { src: '/sprites/uniforms/idol/oops.png',       blend: false },
+      thinking:     { src: '/sprites/uniforms/idol/thinking.png',   blend: false },
+      sad:          { src: '/sprites/uniforms/idol/frustrated.png', blend: false },
+      surprised:    { src: '/sprites/uniforms/idol/excited.png',    blend: false },
+      domain:       { src: '/sprites/uniforms/idol/excited.png',    blend: false },
+    },
     imageSrc: null,
-    description: 'She already performs Domain Expansion. Might as well dress for it.',
-    comingSoon: true,
+    description: 'She already performs a Celebration. Might as well dress for it.',
+    comingSoon: false,
   },
+  // ─── Coming Soon ─────────────────────────────────────────────────────────────
+
+
   {
     id: 'outfit-professor',
     type: 'outfit',
